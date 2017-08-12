@@ -9,7 +9,7 @@
 
     <title>GCON | @yield('titulo')</title>
 
-    @include('shared.javascripts')
+    @include('shared.css')
 </head>
 
 <body class="nav-md">
