@@ -9,10 +9,7 @@
 
     <title>GCON | @yield('titulo')</title>
 
-    <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendors/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet">
+    @include('shared.javascripts')
 </head>
 
 <body class="nav-md">
@@ -40,59 +37,11 @@
 
                 <br />
 
-                <!-- sidebar menu -->
-                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                    <div class="menu_section">
-                        <h3>Reuniões</h3>
-                        <ul class="nav side-menu">
-                            <li><a><i class="fa fa-balance-scale"></i> Reunião Online <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">Listar</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="menu_section">
-                        <h3>Empresas/Serviços</h3>
-                        <ul class="nav side-menu">
-                            <li><a><i class="fa fa-briefcase"></i> Empresas <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="#">Listar</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /sidebar menu -->
+                @include('shared.side-menu')
             </div>
         </div>
 
-        <!-- top navigation -->
-        <div class="top_nav">
-            <div class="nav_menu">
-                <nav class="" role="navigation">
-                    <div class="nav toggle">
-                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                    </div>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="">
-                            <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/img.jpg" alt="">{{ Auth::user()->nome }}
-                                <span class=" fa fa-angle-down"></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;"> Perfil</a></li>
-                                <li>
-                                    <a href="{{ route('logout')  }}"><i class="fa fa-sign-out pull-right"></i> Sair</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- /top navigation -->
+        @include('shared.top-navigation')
 
         <div class="right_col" role="main">
             <div class="">
@@ -119,10 +68,6 @@
     </div>
 </div>
 
-<script src="{{ asset('vendors/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendors/fastclick/lib/fastclick.js') }}"></script>
-<script src="{{ asset('vendors/nprogress/nprogress.js') }}"></script>
-<script src="{{ asset('assets/js/custom.min.js') }}"></script>
+@include('shared.javascripts')
 </body>
 </html>
