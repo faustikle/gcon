@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
-    dd(2);
     return view('welcome');
 });
+
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/painel', 'PainelController@index')->name('painel.index');
