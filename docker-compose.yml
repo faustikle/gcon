@@ -1,0 +1,28 @@
+version: "3"
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/code
+            - ./docker/site.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php
+            - banco
+    php:
+        build: ./docker/builds/php/7.1
+        volumes:
+            - ./:/code
+        links:
+            - banco
+    banco:
+        image: mysql:5.7
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=S3G5H7@sfg
+            - MYSQL_DATABASE=gfcc
+        volumes:
+            - "./docker/database:/var/lib/mysql"
+
