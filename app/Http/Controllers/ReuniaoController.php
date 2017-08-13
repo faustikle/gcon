@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reuniao;
+use Illuminate\Support\Facades\Auth;
 
 class ReuniaoController extends Controller
 {
@@ -10,8 +11,15 @@ class ReuniaoController extends Controller
     {
         $this->authorize('reunioes.listar');
 
-        $reunioes = Reuniao::with('condominio')->get();
+        $reunioes = Reuniao::porUsuario(Auth::user())->get();
 
         return view('reuniao.index', compact('reunioes'));
+    }
+
+    public function visualizar(Reuniao $reuniao)
+    {
+        $this->authorize('reunioes.visualizar');
+
+        return view('reuniao.visualizar', compact('reuniao'));
     }
 }

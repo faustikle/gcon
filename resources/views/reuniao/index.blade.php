@@ -39,7 +39,7 @@
                     <tbody>
                         @foreach($reunioes as $reuniao)
                             <tr>
-                                <td>{{ $reuniao->titulo }}</td>
+                                <td><a href="{{ route('reuniao.visualizar', $reuniao->reuniao_id) }}">{{ $reuniao->titulo }}</a></td>
                                 <td>{{ $reuniao->data_abertura }}</td>
                                 <td>{{ $reuniao->data_encerramento }}</td>
                                 <td>{{ $reuniao->condominio->nome }}</td>
