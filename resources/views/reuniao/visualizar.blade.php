@@ -69,14 +69,20 @@
                             <tr>
                                 <td>{{ $pauta->titulo }}</td>
                                 <td>{{ $pauta->situacao }}</td>
-                                <td>0</td>
+                                <td>{{ $pauta->total_votos }}</td>
                                 <td>
-                                    <form action="votar" method="POST">
+                                    @unless (Auth::user()->jaVotou($pauta))
+                                    <form action="{{ route('voto.aFavor', $pauta->pauta_id) }}" method="POST">
+                                        {{ csrf_field() }}
                                         <button type="submit" class="btn btn-md btn-primary"><i class="fa fa-thumbs-o-up"></i></button>
                                     </form>
-                                    <form action="votar" method="POST">
-                                        <button type="button" class="btn btn-md btn-danger"><i class="fa fa-thumbs-o-down"></i></button>
+                                    <form action="{{ route('voto.contra', $pauta->pauta_id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-thumbs-o-down"></i></button>
                                     </form>
+                                    @else
+                                            Votada!
+                                    @endunless
                                 </td>
                             </tr>
                         @endforeach

@@ -19,7 +19,7 @@ class ReuniaoController extends Controller
     public function visualizar(Reuniao $reuniao)
     {
         $this->authorize('reunioes.visualizar');
-//        dd($reuniao->pautas()->get());
+
         return view('reuniao.visualizar', compact('reuniao'));
     }
 }

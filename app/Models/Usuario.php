@@ -45,6 +45,26 @@ class Usuario extends Authenticatable
         return $this->belongsTo(Condominio::class, 'condominio_id');
     }
 
+    public function votos()
+    {
+        return $this->hasMany(Voto::class, 'usuario_id');
+    }
+
+    public function jaVotou(Pauta $pauta): bool
+    {
+        if ($this->isAdministrador()) {
+            return false;
+        }
+
+        foreach ($this->votos as $voto) {
+            if($voto->pauta->pauta_id === $pauta->pauta_id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * @return bool
      */

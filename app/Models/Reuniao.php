@@ -29,7 +29,7 @@ class Reuniao extends Model
     public function scopePorUsuario($query, Usuario $usuario)
     {
         if ($usuario->isAdministrador()) {
-            return $query->all();
+            return $query;
         }
 
         return $query->where('condominio_id', $usuario->condominio_id);
