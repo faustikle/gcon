@@ -53,7 +53,9 @@
 
                 <div class="clearfix"></div>
 
-                @yield("content")
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    @yield("content")
+                </div>
             </div>
         </div>
 

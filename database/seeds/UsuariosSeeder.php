@@ -14,7 +14,25 @@ class UsuariosSeeder extends Seeder
             'password' => bcrypt('123'),
             'ativo' => true,
             'ultimo_acesso' => Carbon::today(),
-            'funcao' => 'Administrador'
+            'funcao' => Usuario::ADMINISTRADOR
+        ]);
+
+        Usuario::create([
+            'nome' => 'Joao Paulo',
+            'email' => 'sindico@gmail.com',
+            'password' => bcrypt('123'),
+            'ativo' => true,
+            'ultimo_acesso' => Carbon::today(),
+            'funcao' => Usuario::SINDICO
+        ]);
+
+        Usuario::create([
+            'nome' => 'Paulo Gustavo',
+            'email' => 'morador@gmail.com',
+            'password' => bcrypt('123'),
+            'ativo' => true,
+            'ultimo_acesso' => Carbon::today(),
+            'funcao' => Usuario::MORADOR
         ]);
     }
 }
