@@ -17,7 +17,7 @@ class UsuariosSeeder extends Seeder
 
         $administador = new Usuario([
             'nome' => 'Administrador',
-            'email' => 'faustikle@gmail.com',
+            'email' => 'administrador@gmail.com',
             'password' => bcrypt('123'),
             'ativo' => true,
             'ultimo_acesso' => Carbon::today(),
