@@ -23,7 +23,7 @@ class Reuniao extends Model
 
     public function pautas()
     {
-        return $this->hasMany(Pauta::class);
+        return $this->hasMany(Pauta::class, 'reuniao_id');
     }
 
     public function scopePorUsuario($query, Usuario $usuario)
