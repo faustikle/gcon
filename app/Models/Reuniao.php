@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Reuniao extends Model
@@ -26,6 +27,34 @@ class Reuniao extends Model
         return $this->hasMany(Pauta::class, 'reuniao_id');
     }
 
+    public function getAgendadaAttribute()
+    {
+        return Carbon::now()->lt($this->getAbertura());
+    }
+
+    public function getEncerradaAttribute()
+    {
+        return Carbon::now()->gt($this->getEncerramento());
+    }
+
+    public function getAbertaAttribute()
+    {
+        return Carbon::now()->between($this->getAbertura(), $this->getEncerramento());
+    }
+
+    public function getSituacaoAttribute()
+    {
+        if ($this->agendada) {
+            return 'Agendada';
+        }
+
+        if ($this->aberta) {
+            return 'Aberta';
+        }
+
+        return 'Encerrada';
+    }
+
     public function scopePorUsuario($query, Usuario $usuario)
     {
         if ($usuario->isAdministrador()) {
@@ -33,5 +62,15 @@ class Reuniao extends Model
         }
 
         return $query->where('condominio_id', $usuario->condominio_id);
+    }
+
+    private function getAbertura(): Carbon
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->data_abertura);
+    }
+
+    private function getEncerramento(): Carbon
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->data_encerramento);
     }
 }

@@ -18,9 +18,6 @@ class CreatePautasTable extends Migration
             $table->increments('pauta_id');
             $table->string('titulo');
             $table->text('descricao');
-            $table->enum('situacao', [
-                Pauta::ACEITA, Pauta::RECUSADA, Pauta::PENDENTE,
-            ])->default(Pauta::PENDENTE);
             $table->integer('reuniao_id')->unsigned();
             $table->timestamps();
 

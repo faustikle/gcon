@@ -7,4 +7,5 @@ return [
     'reunioes.listar' => [Usuario::SINDICO, Usuario::MORADOR],
     'reunioes.visualizar' => [Usuario::SINDICO, Usuario::MORADOR],
     'reunioes.cadastro' => [Usuario::SINDICO],
+    'votos.total' => [Usuario::SINDICO],
 ];

@@ -35,11 +35,31 @@ final class Pauta extends Model
         return $this->votos->count();
     }
 
-    public function permitiVotacao(): bool
+    public function getVotosNaoAttribute()
     {
-        $aberturaReuniao = Carbon::createFromFormat('Y-m-d H:i:s', $this->reuniao->data_abertura);
-        $encerramentoReuniao = Carbon::createFromFormat('Y-m-d H:i:s', $this->reuniao->data_encerramento);
+        return $this->votos->where('voto', false)->count();
+    }
 
-        return Carbon::now()->between($aberturaReuniao, $encerramentoReuniao);
+    public function getVotosSimAttribute()
+    {
+        return $this->votos->where('voto', true)->count();
+    }
+
+    public function getAceitaAttribute()
+    {
+        return $this->votos_sim > $this->votos_nao;
+    }
+
+    public function getSituacaoAttribute()
+    {
+        if ($this->reuniao->aberta) {
+            return 'Aguardando votações';
+        }
+
+        if ($this->reuniao->agendada) {
+            return 'Aguardando inicio';
+        }
+
+        return $this->aceita ? 'Aceita' : 'Recusada';
     }
 }

@@ -60,30 +60,38 @@
                         <tr>
                             <th>Titulo</th>
                             <th>Situação</th>
-                            <th>Votos</th>
-                            <th>Votar</th>
+                            @if ($reuniao->aberta)
+                                @can('votos.total')
+                                    <th>Votos</th>
+                                @endcan
+                                <th>Votar</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($reuniao->pautas()->get() as $pauta)
+                        @foreach($reuniao->pautas as $pauta)
                             <tr>
                                 <td>{{ $pauta->titulo }}</td>
                                 <td>{{ $pauta->situacao }}</td>
-                                <td>{{ $pauta->total_votos }}</td>
-                                <td>
-                                    @unless (Auth::user()->jaVotou($pauta))
-                                    <form action="{{ route('voto.aFavor', $pauta->pauta_id) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-md btn-primary"><i class="fa fa-thumbs-o-up"></i></button>
-                                    </form>
-                                    <form action="{{ route('voto.contra', $pauta->pauta_id) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-thumbs-o-down"></i></button>
-                                    </form>
-                                    @else
-                                            Votada!
-                                    @endunless
-                                </td>
+                                @if ($reuniao->aberta)
+                                    @can('votos.total')
+                                        <td>{{ $pauta->total_votos }}</td>
+                                    @endcan
+                                    <td>
+                                        @unless (Auth::user()->jaVotou($pauta))
+                                        <form action="{{ route('voto.aFavor', $pauta->pauta_id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-md btn-primary"><i class="fa fa-thumbs-o-up"></i></button>
+                                        </form>
+                                        <form action="{{ route('voto.contra', $pauta->pauta_id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-thumbs-o-down"></i></button>
+                                        </form>
+                                        @else
+                                                Votada!
+                                        @endunless
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

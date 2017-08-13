@@ -24,7 +24,7 @@ class VotoController extends Controller
         /** @var Usuario $usuario */
         $usuario = Auth::user();
 
-        if (!$pauta->permitiVotacao()) {
+        if (!$pauta->reuniao->aberta) {
             return redirect()->back()->with('flash-error', 'Não é permitida votação nesta pauta agora!');
         }
 

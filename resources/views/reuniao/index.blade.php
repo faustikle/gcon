@@ -33,6 +33,7 @@
                         <th>Titulo</th>
                         <th>Data Abertura</th>
                         <th>Data Encerramento</th>
+                        <th>Situação</th>
                         <th>Condominio</th>
                     </tr>
                     </thead>
@@ -42,6 +43,7 @@
                                 <td><a href="{{ route('reuniao.visualizar', $reuniao->reuniao_id) }}">{{ $reuniao->titulo }}</a></td>
                                 <td>{{ $reuniao->data_abertura }}</td>
                                 <td>{{ $reuniao->data_encerramento }}</td>
+                                <td>{{ $reuniao->situacao }}</td>
                                 <td>{{ $reuniao->condominio->nome }}</td>
                             </tr>
                         @endforeach
