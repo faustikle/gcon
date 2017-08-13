@@ -14,7 +14,7 @@ class CreateUsuariosTable extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('usuario_id');
             $table->string('nome');
             $table->string('email')->unique();
             $table->string('password');
@@ -23,8 +23,11 @@ class CreateUsuariosTable extends Migration
             $table->boolean('ativo')->default(false);
             $table->dateTime('ultimo_acesso');
             $table->enum('funcao', ['Administrador', 'Sindico', 'Morador', 'Visitante']);
+            $table->integer('condominio_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('condominio_id')->references('condominio_id')->on('condominios');
         });
     }
 

@@ -38,6 +38,11 @@ class Usuario extends Authenticatable
         'password',
     ];
 
+    public function condominio()
+    {
+        return $this->belongsTo(Condominio::class);
+    }
+
     /**
      * @return bool
      */
