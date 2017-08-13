@@ -28,6 +28,8 @@ class CreateCondominiosTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('reunioes');
         Schema::dropIfExists('condominios');
     }
 }

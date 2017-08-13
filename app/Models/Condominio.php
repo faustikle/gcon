@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Condominio extends Model
 {
+    protected $primaryKey = 'condominio_id';
+
     protected $table = 'condominios';
 
     protected $fillable = [
@@ -14,11 +16,11 @@ final class Condominio extends Model
 
     public function usuarios()
     {
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(Usuario::class, 'condominio_id');
     }
 
     public function reunioes()
     {
-        return $this->hasMany(Reuniao::class);
+        return $this->hasMany(Reuniao::class, 'condominio_id');
     }
 }

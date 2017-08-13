@@ -9,11 +9,7 @@ class UsuariosSeeder extends Seeder
 {
     public function run()
     {
-        $condominio = new Condominio([
-            'nome' => 'Condominio Parque das Araras',
-            'ativo' => true
-        ]);
-        $condominio->save();
+        $condominio = Condominio::where('nome', 'Condominio dos Fakers')->first();
 
         $administador = new Usuario([
             'nome' => 'Administrador',

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReuniaoesTable extends Migration
+class CreateReunioesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,7 +22,7 @@ class CreateReuniaoesTable extends Migration
             $table->integer('condominio_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('condominio_id')->references('condominio_id')->on('condominios');
+            $table->foreign('condominio_id')->references('condominio_id')->on('condominios')->onDelete('cascade');
         });
     }
 

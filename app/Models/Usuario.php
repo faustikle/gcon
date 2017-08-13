@@ -14,6 +14,8 @@ class Usuario extends Authenticatable
 
     use Notifiable;
 
+    protected $primaryKey = 'usuario_id';
+
     protected $table = 'usuarios';
 
     /**
@@ -40,7 +42,7 @@ class Usuario extends Authenticatable
 
     public function condominio()
     {
-        return $this->belongsTo(Condominio::class);
+        return $this->belongsTo(Condominio::class, 'usuario_id');
     }
 
     /**

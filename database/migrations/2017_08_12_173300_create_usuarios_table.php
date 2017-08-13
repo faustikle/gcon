@@ -27,7 +27,7 @@ class CreateUsuariosTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('condominio_id')->references('condominio_id')->on('condominios');
+            $table->foreign('condominio_id')->references('condominio_id')->on('condominios')->onDelete('cascade');;
         });
     }
 
