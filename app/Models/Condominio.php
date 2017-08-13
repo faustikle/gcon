@@ -16,4 +16,9 @@ final class Condominio extends Model
     {
         return $this->hasMany(Usuario::class);
     }
+
+    public function reunioes()
+    {
+        return $this->hasMany(Reuniao::class);
+    }
 }
