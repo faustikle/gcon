@@ -33,6 +33,7 @@ class CreateReunioesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('pautas');
         Schema::dropIfExists('reunioes');
     }
 }

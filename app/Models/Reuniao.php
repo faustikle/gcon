@@ -10,9 +10,20 @@ class Reuniao extends Model
 
     protected $table = 'reunioes';
 
+    protected $fillable = [
+        'titulo',
+        'data_abertura',
+        'data_encerramento',
+    ];
+
     public function condominio()
     {
         return $this->belongsTo(Condominio::class, 'condominio_id');
+    }
+
+    public function pautas()
+    {
+        return $this->hasMany(Pauta::class);
     }
 
     public function scopePorUsuario($query, Usuario $usuario)

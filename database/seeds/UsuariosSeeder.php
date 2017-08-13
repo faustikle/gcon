@@ -42,8 +42,8 @@ class UsuariosSeeder extends Seeder
             'funcao' => Usuario::MORADOR
         ]);
 
-        $condominio->usuarios()->saveMany([
-            $administador, $sindico, $morador
-        ]);
+        $administador->condominio()->associate($condominio)->save();
+        $sindico->condominio()->associate($condominio)->save();
+        $morador->condominio()->associate($condominio)->save();
     }
 }
