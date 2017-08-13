@@ -53,7 +53,7 @@
 
                 <div class="clearfix"></div>
 
-                <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="col-md-12 col-sm-8 col-xs-12">
                     @yield("content")
                 </div>
             </div>

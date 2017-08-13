@@ -10,12 +10,8 @@ class Reuniao extends Model
 
     protected $table = 'reunioes';
 
-    protected $fillable = [
-        'condominio_id',
-    ];
-
     public function condominio()
     {
-        return $this->belongsTo(Condominio::class, 'reuniao_id');
+        return $this->belongsTo(Condominio::class, 'condominio_id');
     }
 }

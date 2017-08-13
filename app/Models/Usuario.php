@@ -42,7 +42,7 @@ class Usuario extends Authenticatable
 
     public function condominio()
     {
-        return $this->belongsTo(Condominio::class, 'usuario_id');
+        return $this->belongsTo(Condominio::class, 'condominio_id');
     }
 
     /**

@@ -25,7 +25,8 @@ class ReunioesSeeder extends Seeder
                 'data_encerramento' => Carbon::now()->addDays(30),
             ]);
 
-            $condominio->reunioes()->save($reuniao);
+            $reuniao->condominio()->associate($condominio);
+            $reuniao->save();
         }
     }
 }

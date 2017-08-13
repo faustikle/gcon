@@ -1,1 +1,0 @@
-<li>{{ $reuniao['titulo'] }}</li>
