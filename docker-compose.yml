@@ -6,6 +6,7 @@ services:
             - "80:80"
         volumes:
             - "./:/var/www/html"
+            - "./docker/confs/000-default.conf:/etc/apache2/sites-available/000-default.conf"
         links:
             - banco
     banco:
