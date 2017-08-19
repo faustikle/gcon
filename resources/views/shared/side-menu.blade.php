@@ -9,7 +9,7 @@
                             <li><a href="{{ route('reuniao.index')  }}">Listar</a></li>
                         @endcan
                         @can('reunioes.cadastro')
-                            <li><a href="{{ route('reuniao.index')  }}">Cadastrar</a></li>
+                            <li><a href="{{ route('reuniao.cadastrar')  }}">Cadastrar</a></li>
                         @endcan
                     </ul>
                 </li>

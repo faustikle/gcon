@@ -22,4 +22,11 @@ class ReuniaoController extends Controller
 
         return view('reuniao.visualizar', compact('reuniao'));
     }
+
+    public function cadastrar()
+    {
+        $this->authorize('reunioes.cadastro');
+
+        return view('reuniao.cadastro');
+    }
 }
