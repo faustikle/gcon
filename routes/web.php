@@ -8,6 +8,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
 
     Route::get('/reunioes', 'ReuniaoController@index')->name('reuniao.index');
     Route::get('/reuniao/nova', 'ReuniaoController@cadastrar')->name('reuniao.cadastrar');
+    Route::post('/reuniao/nova', 'ReuniaoController@salvar')->name('reuniao.salvar');
     Route::get('/reuniao/{reuniao}', 'ReuniaoController@visualizar')->name('reuniao.visualizar');
 
     Route::post('/pauta/{pauta}/votar/sim', 'VotoController@votarAFavor')->name('voto.aFavor');

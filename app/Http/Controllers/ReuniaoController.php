@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reuniao;
+use App\Models\Usuario;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReuniaoController extends Controller
@@ -28,5 +30,21 @@ class ReuniaoController extends Controller
         $this->authorize('reunioes.cadastro');
 
         return view('reuniao.cadastro');
+    }
+
+    public function salvar(Request $request)
+    {
+        $this->authorize('reunioes.cadastro');
+
+        $condominio = Auth::user()->condominio;
+        $reuniao = new Reuniao($request->input());
+
+        $reuniao->condominio()->associate($condominio);
+
+        if ($reuniao->save()) {
+            return redirect()->route('reuniao.index')->with('flash-success', 'Reunião criada com sucesso!');
+        }
+
+        return redirect()->back()->with('flash-error', 'Erro ao salvar!');
     }
 }
