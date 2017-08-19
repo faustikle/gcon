@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormReuniaoRequest;
 use App\Models\Reuniao;
-use App\Models\Usuario;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReuniaoController extends Controller
@@ -32,7 +31,7 @@ class ReuniaoController extends Controller
         return view('reuniao.cadastro');
     }
 
-    public function salvar(Request $request)
+    public function salvar(FormReuniaoRequest $request)
     {
         $this->authorize('reunioes.cadastro');
 
