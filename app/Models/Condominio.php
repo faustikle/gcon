@@ -23,4 +23,9 @@ final class Condominio extends Model
     {
         return $this->hasMany(Reuniao::class);
     }
+
+    public function equals(Condominio $condominio)
+    {
+        return $this->condominio_id === $condominio->condominio_id;
+    }
 }

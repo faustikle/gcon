@@ -10,8 +10,6 @@ class ReuniaoController extends Controller
 {
     public function index()
     {
-        $this->authorize('reunioes.listar');
-
         $reunioes = Reuniao::porUsuario(Auth::user())->get();
 
         return view('reuniao.index', compact('reunioes'));
@@ -19,22 +17,16 @@ class ReuniaoController extends Controller
 
     public function visualizar(Reuniao $reuniao)
     {
-        $this->authorize('reunioes.visualizar');
-
         return view('reuniao.visualizar', compact('reuniao'));
     }
 
     public function cadastrar()
     {
-        $this->authorize('reunioes.cadastro');
-
         return view('reuniao.cadastro');
     }
 
     public function salvar(FormReuniaoRequest $request)
     {
-        $this->authorize('reunioes.cadastro');
-
         $condominio = Auth::user()->condominio;
         $reuniao = new Reuniao($request->input());
 
@@ -51,7 +43,7 @@ class ReuniaoController extends Controller
 
     public function excluir(Reuniao $reuniao)
     {
-        $this->authorize('reunioes.excluir');
+        $this->authorize('excluir', $reuniao);
 
         if ($reuniao->delete()) {
             return redirect()

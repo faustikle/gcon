@@ -11,11 +11,15 @@ class VotoController extends Controller
 {
     public function votarAFavor(Pauta $pauta)
     {
+        $this->authorize('votar', $pauta);
+
         return $this->votar($pauta, true);
     }
 
     public function votarContra(Pauta $pauta)
     {
+        $this->authorize('votar', $pauta);
+
         return $this->votar($pauta, false);
     }
 

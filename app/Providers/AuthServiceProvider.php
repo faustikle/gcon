@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Pauta;
+use App\Models\Reuniao;
 use App\Models\Usuario;
+use App\Policies\PautaPolicy;
+use App\Policies\ReuniaoPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -14,7 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        Reuniao::class => ReuniaoPolicy::class,
+        Pauta::class => PautaPolicy::class,
     ];
 
     /**
