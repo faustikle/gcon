@@ -2,6 +2,10 @@
 
 return [
     'reuniao' => [
+        'cadastro-sucesso' => 'Reunião criada com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar a reunião.',
+        'excluir-sucesso' => 'Reunião excluida com sucesso!',
+        'excluir-erro' => 'Ocorreu algum erro ao excluir a reunião.',
         'form' => [
             // Titulo
             'titulo.required' => 'O titulo é obrigatório',

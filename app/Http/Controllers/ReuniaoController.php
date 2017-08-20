@@ -41,9 +41,26 @@ class ReuniaoController extends Controller
         $reuniao->condominio()->associate($condominio);
 
         if ($reuniao->save()) {
-            return redirect()->route('reuniao.index')->with('flash-success', 'Reunião criada com sucesso!');
+            return redirect()
+                ->route('reuniao.index')
+                ->with('flash-success', config('mensagens.reuniao.cadastro-sucesso'));
         }
 
-        return redirect()->back()->with('flash-error', 'Erro ao salvar!');
+        return redirect()->back()->with('flash-error', config('mensagens.reuniao.cadastro-erro'));
+    }
+
+    public function excluir(Reuniao $reuniao)
+    {
+        $this->authorize('reunioes.excluir');
+
+        if ($reuniao->delete()) {
+            return redirect()
+                ->route('reuniao.index')
+                ->with('flash-success', config('mensagens.reuniao.excluir-sucesso'));
+        }
+
+        return redirect()
+            ->back()
+            ->with('flash-error', config('mensagens.reuniao.excluir-erro'));
     }
 }

@@ -35,6 +35,7 @@
                         <th>Data Encerramento</th>
                         <th>Situação</th>
                         <th>Condominio</th>
+                        <th>Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,14 @@
                                 <td>{{ $reuniao->data_encerramento }}</td>
                                 <td>{{ $reuniao->situacao }}</td>
                                 <td>{{ $reuniao->condominio->nome }}</td>
+                                <td>
+                                @can('reunioes.excluir')
+                                    <form action="{{ route('reuniao.excluir', $reuniao->reuniao_id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                @endcan
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
