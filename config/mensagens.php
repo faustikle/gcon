@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'geral' => [
+        'permissao-negada' => 'Você não tem permissão para executar esta ação.'
+    ],
     'reuniao' => [
         'cadastro-sucesso' => 'Reunião criada com sucesso!',
         'cadastro-erro' => 'Ocorreu algum erro ao salvar a reunião.',
@@ -21,5 +24,11 @@ return [
             'data_encerramento.date'  => 'A data de encerramento deve ser uma data válida',
             'data_encerramento.after_or_equal'  => 'A data de encerramento deve ser maior que hoje.',
         ]
+    ],
+    'votacao' => [
+        'reuniao-nao-aberta' => 'Não é permitida votação nesta pauta agora!',
+        'ja-votada' => 'Você ja votou nesta pauta!',
+        'erro' => 'Erro ao salvar votação!',
+        'sucesso' => 'Votação realizada!'
     ]
 ];

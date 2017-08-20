@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof AuthorizationException) {
             return redirect()
                 ->route('painel.index')
-                ->with('flash-access', 'Você não tem permissão para executar esta ação.');
+                ->with('flash-access', config('mensagens.geral.permissao-negada'));
         }
 
         return parent::render($request, $exception);

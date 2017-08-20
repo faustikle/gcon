@@ -29,11 +29,11 @@ class VotoController extends Controller
         $usuario = Auth::user();
 
         if (!$pauta->reuniao->aberta) {
-            return redirect()->back()->with('flash-error', 'Não é permitida votação nesta pauta agora!');
+            return redirect()->back()->with('flash-error', config('mensagens.votacao.reuniao-nao-aberta'));
         }
 
         if ($usuario->jaVotou($pauta)) {
-            return redirect()->back()->with('flash-error', 'Você ja votou nesta pauta!');
+            return redirect()->back()->with('flash-error', config('mensagens.votacao.ja-votada'));
         }
 
         $voto = new Voto(['voto' => $voto]);
@@ -42,9 +42,9 @@ class VotoController extends Controller
         $voto->pauta()->associate($pauta);
 
         if (!$voto->save()) {
-            return redirect()->back()->with('flash-error', 'Erro ao salvar votação!');
+            return redirect()->back()->with('flash-error', config('mensagens.votacao.erro'));
         }
 
-        return redirect()->back()->with('flash-success', 'Votação realizada!');
+        return redirect()->back()->with('flash-success', config('mensagens.votacao.sucesso'));
     }
 }
