@@ -14,13 +14,17 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->name('reuniao.cadastrar')
         ->middleware('can:reunioes.cadastro');
 
-    Route::post('/reuniao/nova', 'ReuniaoController@salvar')
+    Route::post('/reuniao/salvar', 'ReuniaoController@salvar')
         ->name('reuniao.salvar')
         ->middleware('can:reunioes.cadastro');
 
     Route::post('/reuniao/{reuniao}/excluir', 'ReuniaoController@excluir')
         ->name('reuniao.excluir')
         ->middleware('can:reunioes.excluir');
+
+    Route::get('/reuniao/{reuniao}/editar', 'ReuniaoController@editar')
+        ->name('reuniao.editar')
+        ->middleware('can:reunioes.editar');
 
     Route::get('/reuniao/{reuniao}', 'ReuniaoController@visualizar')
         ->name('reuniao.visualizar')

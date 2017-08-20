@@ -46,12 +46,19 @@
                                 <td>{{ $reuniao->data_encerramento }}</td>
                                 <td>{{ $reuniao->situacao }}</td>
                                 <td>{{ $reuniao->condominio->nome }}</td>
-                                <td>
+                                <td style="display: inline-flex">
                                 @can('reunioes.excluir')
                                     <form action="{{ route('reuniao.excluir', $reuniao->reuniao_id) }}" method="POST">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-trash-o"></i></button>
                                     </form>
+                                @endcan
+                                @can('reunioes.editar')
+                                    <a
+                                            href="{{ route('reuniao.editar', $reuniao->reuniao_id) }}"
+                                            class="btn btn-md btn-info">
+                                        <i class="fa fa-pencil-square-o"></i>
+                                    </a>
                                 @endcan
                                 </td>
                             </tr>

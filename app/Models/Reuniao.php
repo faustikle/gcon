@@ -27,6 +27,16 @@ class Reuniao extends Model
         return $this->hasMany(Pauta::class, 'reuniao_id');
     }
 
+    public function getDataAberturaAttribute($dataAbertura)
+    {
+        return Carbon::createFromFormat('Y-m-d h:s:i', $dataAbertura);
+    }
+
+    public function getDataEncerramentoAttribute($dataEncerramento)
+    {
+        return Carbon::createFromFormat('Y-m-d h:s:i', $dataEncerramento);
+    }
+
     public function getAgendadaAttribute()
     {
         return Carbon::now()->lt($this->getAbertura());

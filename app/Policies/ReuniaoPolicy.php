@@ -22,7 +22,27 @@ class ReuniaoPolicy
      * @param Reuniao $reuniao
      * @return bool
      */
+    public function editar(Usuario $usuario, Reuniao $reuniao)
+    {
+        return $this->isProprioCondominio($usuario, $reuniao);
+    }
+
+    /**
+     * @param Usuario $usuario
+     * @param Reuniao $reuniao
+     * @return bool
+     */
     public function excluir(Usuario $usuario, Reuniao $reuniao)
+    {
+        return $this->isProprioCondominio($usuario, $reuniao);
+    }
+
+    /**
+     * @param Usuario $usuario
+     * @param Reuniao $reuniao
+     * @return bool
+     */
+    private function isProprioCondominio(Usuario $usuario, Reuniao $reuniao): bool
     {
         $condominioUsuario = $usuario->condominio;
         $condominioReuniao = $reuniao->condominio;

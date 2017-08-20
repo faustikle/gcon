@@ -24,4 +24,9 @@ final class FormReuniaoRequest extends FormRequest
     {
         return config('mensagens.reuniao.form');
     }
+
+    public function isUpdate(): bool
+    {
+        return $this->has('reuniao_id');
+    }
 }

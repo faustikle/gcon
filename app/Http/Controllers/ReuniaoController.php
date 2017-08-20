@@ -25,12 +25,23 @@ class ReuniaoController extends Controller
         return view('reuniao.cadastro');
     }
 
+    public function editar(Reuniao $reuniao)
+    {
+        $this->authorize('editar', $reuniao);
+
+        return view('reuniao.cadastro', compact('reuniao'));
+    }
+
     public function salvar(FormReuniaoRequest $request)
     {
-        $condominio = Auth::user()->condominio;
-        $reuniao = new Reuniao($request->input());
-
-        $reuniao->condominio()->associate($condominio);
+        if ($request->isUpdate()) {
+            $reuniao = Reuniao::find($request->get('reuniao_id'));
+            $reuniao->fill($request->input());
+        } else {
+            $condominio = Auth::user()->condominio;
+            $reuniao = new Reuniao($request->input());
+            $reuniao->condominio()->associate($condominio);
+        }
 
         if ($reuniao->save()) {
             return redirect()
