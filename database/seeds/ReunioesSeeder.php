@@ -57,7 +57,12 @@ class ReunioesSeeder extends Seeder
             foreach ($reuniao['pautas'] as $pauta) {
                 $pautaObjeto = new Pauta([
                     'titulo' => $pauta,
-                    'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut viverra risus. Vestibulum quis justo non felis aliquam scelerisque at varius lectus. Etiam a augue rutrum, tincidunt mi nec, hendrerit sem. Duis rhoncus nec ante a dapibus. Proin et eros eget risus rutrum pulvinar sit amet sit amet metus. Aenean id libero aliquam, molestie lectus nec, varius nunc. In ut fermentum elit. Curabitur vestibulum lorem mauris, at feugiat erat fermentum quis. In id porttitor odio, non congue tellus.'
+                    'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut isus. '.
+                     'Vestibulum quis justo non felis aliquam scelerisque at varius lectus. Etiam a augue rutrum, '.
+                     'tincidunt mi nec, hendrerit sem. Duis rhoncus nec ante a dapibus. Proin et eros eget risus '.
+                     'pulvinar sit amet sit amet metus. Aenean id libero aliquam, molestie lectus nec, varius nunc. '.
+                     'ut fermentum elit. Curabitur vestibulum lorem mauris, at feugiat erat fermentum quis. In id ' .
+                     'porttitor odio, non congue tellus.'
                 ]);
 
                 $pautaObjeto->reuniao()->associate($reuniaoObjeto);

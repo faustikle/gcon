@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comentario;
 use App\Models\Pauta;
 use App\Models\Usuario;
 use App\Models\Voto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class VotoController extends Controller
 {
-    public function votarAFavor(Pauta $pauta)
+    public function votarAFavor(Request $request, Pauta $pauta)
     {
         $this->authorize('votar', $pauta);
 
-        return $this->votar($pauta, true);
+        return $this->votar($pauta, true, $request->get('comentario'));
     }
 
-    public function votarContra(Pauta $pauta)
+    public function votarContra(Request $request, Pauta $pauta)
     {
         $this->authorize('votar', $pauta);
 
-        return $this->votar($pauta, false);
+        return $this->votar($pauta, false, $request->get('comentario'));
     }
 
-    private function votar(Pauta $pauta, bool $voto)
+    private function votar(Pauta $pauta, bool $voto, string $comentario = null)
     {
         /** @var Usuario $usuario */
         $usuario = Auth::user();
@@ -38,13 +40,20 @@ class VotoController extends Controller
 
         $voto = new Voto(['voto' => $voto]);
 
+        if ($comentario) {
+            $comentario = new Comentario(['descricao' => $comentario]);
+            $comentario->usuario()->associate($usuario);
+            $comentario->pauta()->associate($pauta);
+            $comentario->save();
+        }
+
         $voto->usuario()->associate($usuario);
         $voto->pauta()->associate($pauta);
 
-        if (!$voto->save()) {
-            return redirect()->back()->with('flash-error', config('mensagens.votacao.erro'));
+        if ($voto->save()) {
+            return redirect()->back()->with('flash-success', config('mensagens.votacao.sucesso'));
         }
 
-        return redirect()->back()->with('flash-success', config('mensagens.votacao.sucesso'));
+        return redirect()->back()->with('flash-error', config('mensagens.votacao.erro'));
     }
 }

@@ -16,12 +16,12 @@ final class Condominio extends Model
 
     public function usuarios()
     {
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(Usuario::class, 'condominio_id');
     }
 
     public function reunioes()
     {
-        return $this->hasMany(Reuniao::class);
+        return $this->hasMany(Reuniao::class, 'condominio_id');
     }
 
     public function equals(Condominio $condominio)

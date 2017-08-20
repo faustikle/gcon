@@ -25,6 +25,11 @@ final class Pauta extends Model
         return $this->hasMany(Voto::class, 'pauta_id');
     }
 
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class, 'pauta_id');
+    }
+
     public function reuniao()
     {
         return $this->belongsTo(Reuniao::class, 'reuniao_id');
