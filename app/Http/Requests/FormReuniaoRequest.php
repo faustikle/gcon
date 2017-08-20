@@ -15,8 +15,8 @@ final class FormReuniaoRequest extends FormRequest
     {
         return [
             'titulo' => 'required|max:255',
-            'data_abertura' => 'required|date|after_or_equal:now',
-            'data_encerramento' => 'required|date|after_or_equal:now'
+            'data_abertura' => 'required|date|after_or_equal:now - 1 day',
+            'data_encerramento' => 'required|date|after_or_equal:now - 1 day'
         ];
     }
 
