@@ -28,8 +28,8 @@
                 </div>
                 <div class="x_content">
                     <h4>Titulo: <small>{{ $reuniao->titulo }}</small></h4>
-                    <h4>Data Abertura: <small>{{ $reuniao->data_abertura }}</small></h4>
-                    <h4>Data Encerramento: <small>{{ $reuniao->data_encerramento }}</small></h4>
+                    <h4>Data Abertura: <small>{{ $reuniao->data_abertura->format('d/m/Y') }}</small></h4>
+                    <h4>Data Encerramento: <small>{{ $reuniao->data_encerramento->format('d/m/Y') }}</small></h4>
                 </div>
             </div>
         </div>

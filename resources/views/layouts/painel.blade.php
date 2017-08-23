@@ -36,7 +36,6 @@
                 <!-- /menu profile quick info -->
 
                 <br />
-
                 @include('shared.side-menu')
             </div>
         </div>

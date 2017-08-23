@@ -91,7 +91,10 @@
   display: none; }
 
 .menu_section {
-  margin-bottom: 35px; }
+  margin-bottom: 15px; }
+
+#sidebar-menu {
+  margin-top: 90px; }
 
 .menu_section h3 {
   padding-left: 23px;
@@ -105,7 +108,7 @@
   text-shadow: 1px 1px #000; }
 
 .menu_section > ul {
-  margin-top: 10px; }
+  margin-top: 4px; }
 
 .profile_pic {
   width: 35%;
@@ -484,7 +487,7 @@ a:hover, a:focus {
   cursor: pointer; }
 
 .nav.side-menu > li > a {
-  margin-bottom: 6px; }
+  margin-bottom: 0px; }
 
 .nav.side-menu > li > a:hover {
   color: #F2F5F7 !important; }

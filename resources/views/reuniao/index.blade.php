@@ -42,8 +42,8 @@
                         @foreach($reunioes as $reuniao)
                             <tr>
                                 <td><a href="{{ route('reuniao.visualizar', $reuniao->reuniao_id) }}">{{ $reuniao->titulo }}</a></td>
-                                <td>{{ $reuniao->data_abertura }}</td>
-                                <td>{{ $reuniao->data_encerramento }}</td>
+                                <td>{{ $reuniao->data_abertura->format('d/m/Y') }}</td>
+                                <td>{{ $reuniao->data_encerramento->format('d/m/Y') }}</td>
                                 <td>{{ $reuniao->situacao }}</td>
                                 <td>{{ $reuniao->condominio->nome }}</td>
                                 <td style="display: inline-flex">
