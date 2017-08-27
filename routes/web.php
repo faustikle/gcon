@@ -59,5 +59,20 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::post('/pauta/{pauta}/votar/nao', 'VotoController@votarContra')
         ->name('voto.contra')
         ->middleware('can:votos.votar');
+
+    /**
+     * OCORRÊNCIAS
+     */
+    Route::get('/ocorrencias', 'OcorrenciaController@index')
+        ->name('ocorrencia.index')
+        ->middleware('can:ocorrencias.listar');
+
+    Route::get('/ocorrencia/{ocorrencia}', 'OcorrenciaController@visualizar')
+        ->name('ocorrencia.visualizar')
+        ->middleware('can:ocorrencias.visualizar');
+
+    Route::post('/ocorrencia/{ocorrencia}/resolver', 'OcorrenciaController@resolver')
+        ->name('ocorrencia.resolver')
+        ->middleware('can:ocorrencias.resolver');
 });
 

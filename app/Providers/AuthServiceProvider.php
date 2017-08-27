@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Ocorrencia;
 use App\Models\Pauta;
 use App\Models\Reuniao;
 use App\Models\Usuario;
+use App\Policies\OcorrenciaPolicy;
 use App\Policies\PautaPolicy;
 use App\Policies\ReuniaoPolicy;
 use Illuminate\Support\Facades\Gate;
@@ -20,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Reuniao::class => ReuniaoPolicy::class,
         Pauta::class => PautaPolicy::class,
+        Ocorrencia::class => OcorrenciaPolicy::class,
     ];
 
     /**

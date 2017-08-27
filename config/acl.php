@@ -15,4 +15,10 @@ return [
     'pautas.excluir' => [Usuario::SINDICO],
     'votos.votar' => [Usuario::SINDICO, Usuario::MORADOR],
     'votos.total' => [Usuario::SINDICO],
+
+    'ocorrencias.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'ocorrencias.listar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'ocorrencias.visualizar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'ocorrencias.registrar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'ocorrencias.resolver' => [Usuario::SINDICO],
 ];

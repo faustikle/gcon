@@ -43,5 +43,9 @@ return [
         'ja-votada' => 'Você ja votou nesta pauta!',
         'erro' => 'Erro ao salvar votação!',
         'sucesso' => 'Votação realizada!'
+    ],
+    'ocorrencia' => [
+        'resolvida-sucesso' => 'Ocorrência resolvida com sucesso!',
+        'resolvida-erro' => 'Ocorreu algum erro ao resolver a ocorrência.',
     ]
 ];

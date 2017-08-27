@@ -14,12 +14,18 @@
                 </ul>
             </li>
             @endcan
+            @can('ocorrencias.menu')
             <li><a><i class="fa fa-binoculars"></i> Ocorrências <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                    <li><a href="#">Cadastrar</a></li>
+                    @can('ocorrencias.listar')
+                        <li><a href="{{ route('ocorrencia.index') }}">Listar</a></li>
+                    @endcan
+                    @can('ocorrencias.registrar')
+                        <li><a href="#">Registrar Nova</a></li>
+                    @endcan
                 </ul>
             </li>
+            @endcan
             <li><a><i class="fa fa-wrench"></i> Serviço <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="#">Listar locais</a></li>
