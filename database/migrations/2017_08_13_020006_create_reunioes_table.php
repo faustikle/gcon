@@ -18,7 +18,6 @@ class CreateReunioesTable extends Migration
             $table->string('titulo');
             $table->dateTime('data_abertura');
             $table->dateTime('data_encerramento');
-            $table->boolean('ativo')->default(true);
             $table->integer('condominio_id')->unsigned();
             $table->timestamps();
 
