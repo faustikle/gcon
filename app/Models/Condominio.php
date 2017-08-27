@@ -24,6 +24,11 @@ final class Condominio extends Model
         return $this->hasMany(Reuniao::class, 'condominio_id');
     }
 
+    public function ocorrencias()
+    {
+        return $this->hasMany(Ocorrencia::class, 'condominio_id');
+    }
+
     public function equals(Condominio $condominio)
     {
         return $this->condominio_id === $condominio->condominio_id;

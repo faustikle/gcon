@@ -50,6 +50,11 @@ class Usuario extends Authenticatable
         return $this->hasMany(Voto::class, 'usuario_id');
     }
 
+    public function ocorrencias()
+    {
+        return $this->hasMany(Ocorrencia::class, 'usuario_id');
+    }
+
     public function comentarios()
     {
         return $this->hasMany(Voto::class, 'usuario_id');

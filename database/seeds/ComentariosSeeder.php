@@ -11,7 +11,7 @@ class ComentariosSeeder extends Seeder
         $comentarios = [
             "Devemos pensar melhor no que estamos tentando resolver aqui.",
             "Acho uma grande falta de escolha do sídico opinar isso!",
-            "A visinha de baixa nao para de fazer barulho!",
+            "A vizinha de baixa nao para de fazer barulho!",
             "Inacreditável",
             "Discordo em condordar com esta pauta",
             "Infelizmente não tempos escolha...",
