@@ -5,7 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-final class Pauta extends Model
+final class Pauta extends Model implements Formable
 {
     const ACEITA = 'Aceita',
           RECUSADA = 'Recusada',
@@ -19,6 +19,16 @@ final class Pauta extends Model
         'titulo',
         'descricao',
     ];
+
+    public function getPrimaryKeyName(): string
+    {
+        return $this->primaryKey;
+    }
+
+    public function getId(): int
+    {
+        return $this->reuniao_id;
+    }
 
     public function votos()
     {

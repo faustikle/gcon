@@ -5,7 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Reuniao extends Model
+class Reuniao extends Model implements Formable
 {
     protected $primaryKey = 'reuniao_id';
 
@@ -16,6 +16,16 @@ class Reuniao extends Model
         'data_abertura',
         'data_encerramento',
     ];
+
+    public function getPrimaryKeyName(): string
+    {
+        return $this->primaryKey;
+    }
+
+    public function getId(): int
+    {
+        return $this->reuniao_id;
+    }
 
     public function condominio()
     {
