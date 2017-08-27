@@ -47,7 +47,7 @@
             <input class="btn btn-default submit" type="submit" value="{{ isset($reuniao) ? 'Salvar' : 'Cadastrar' }}">
             <a class="btn btn-default submit" href="{{ route('reuniao.index') }}">Voltar</a>
             @if(isset($reuniao))
-            <a class="btn btn-info submit" href="{{ route('reuniao.index') }}">Adicionar Pauta</a>
+            <a class="btn btn-info submit" href="{{ route('pauta.cadastrar', $reuniao->reuniao_id) }}">Adicionar Pauta</a>
             @endif
         </div>
 
@@ -83,15 +83,15 @@
                 @endif
                 <td>
                     <div style="display: inline-flex">
-                    @can('reunioes.excluir')
-                    <form action="{{ route('reuniao.excluir', $reuniao->reuniao_id) }}" method="POST">
+                    @can('pautas.excluir')
+                    <form action="{{ route('pauta.excluir', $pauta->pauta_id) }}" method="POST">
                         {{ csrf_field() }}
                         <button type="submit" class="btn btn-md btn-danger"><i class="fa fa-trash-o"></i></button>
                     </form>
                     @endcan
-                    @can('reunioes.editar')
+                    @can('pautas.editar')
                     <a
-                            href="{{ route('reuniao.editar', $reuniao->reuniao_id) }}"
+                            href="{{ route('pauta.editar', [$reuniao->reuniao_id, $pauta->pauta_id]) }}"
                             class="btn btn-md btn-info">
                         <i class="fa fa-pencil-square-o"></i>
                     </a>

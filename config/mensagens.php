@@ -4,8 +4,21 @@ return [
     'geral' => [
         'permissao-negada' => 'Você não tem permissão para executar esta ação.'
     ],
+    'pauta' => [
+        'cadastro-sucesso' => 'Pauta salva com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar a pauta.',
+        'excluir-sucesso' => 'Pauta excluida com sucesso!',
+        'excluir-erro' => 'Ocorreu algum erro ao excluir a pauta.',
+        'form' => [
+            // Titulo
+            'titulo.required' => 'O titulo é obrigatório',
+
+            //Descricao
+            'descricao.required' => 'A descrição é obrigatória',
+        ]
+    ],
     'reuniao' => [
-        'cadastro-sucesso' => 'Reunião criada com sucesso!',
+        'cadastro-sucesso' => 'Reunião salva com sucesso!',
         'cadastro-erro' => 'Ocorreu algum erro ao salvar a reunião.',
         'excluir-sucesso' => 'Reunião excluida com sucesso!',
         'excluir-erro' => 'Ocorreu algum erro ao excluir a reunião.',

@@ -6,6 +6,9 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/', 'PainelController@index')->name('painel.index');
 
+    /**
+     * REUNIÕES
+     */
     Route::get('/reunioes', 'ReuniaoController@index')
         ->name('reuniao.index')
         ->middleware('can:reunioes.listar');
@@ -14,7 +17,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->name('reuniao.cadastrar')
         ->middleware('can:reunioes.cadastro');
 
-    Route::post('/reuniao/salvar', 'ReuniaoController@salvar')
+    Route::post('/reuniao/nova', 'ReuniaoController@salvar')
         ->name('reuniao.salvar')
         ->middleware('can:reunioes.cadastro');
 
@@ -29,6 +32,25 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/reuniao/{reuniao}', 'ReuniaoController@visualizar')
         ->name('reuniao.visualizar')
         ->middleware('can:reunioes.visualizar');
+
+    /**
+     * PAUTAS
+     */
+    Route::get('/reuniao/{reuniao}/pauta/nova', 'PautaController@cadastrar')
+        ->name('pauta.cadastrar')
+        ->middleware('can:pautas.cadastro');
+
+    Route::get('/reuniao/{reuniao}/pauta/{pauta}', 'PautaController@editar')
+        ->name('pauta.editar')
+        ->middleware('can:pautas.editar');
+
+    Route::post('/reuniao/{reuniao}/pauta/nova', 'PautaController@salvar')
+        ->name('pauta.salvar')
+        ->middleware('can:pautas.cadastro');
+
+    Route::post('/pauta/{pauta}/excluir', 'PautaController@excluir')
+        ->name('pauta.excluir')
+        ->middleware('can:pautas.excluir');
 
     Route::post('/pauta/{pauta}/votar/sim', 'VotoController@votarAFavor')
         ->name('voto.aFavor')

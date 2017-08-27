@@ -9,6 +9,10 @@ return [
     'reunioes.excluir' => [Usuario::SINDICO],
     'reunioes.editar' => [Usuario::SINDICO],
     'reunioes.cadastro' => [Usuario::SINDICO],
+
+    'pautas.cadastro' => [Usuario::SINDICO],
+    'pautas.editar' => [Usuario::SINDICO],
+    'pautas.excluir' => [Usuario::SINDICO],
     'votos.votar' => [Usuario::SINDICO, Usuario::MORADOR],
     'votos.total' => [Usuario::SINDICO],
 ];
