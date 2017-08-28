@@ -21,7 +21,7 @@
                         <li><a href="{{ route('ocorrencia.index') }}">Listar</a></li>
                     @endcan
                     @can('ocorrencias.registrar')
-                        <li><a href="#">Registrar Nova</a></li>
+                        <li><a href="{{ route('ocorrencia.registrar') }}">Registrar Nova</a></li>
                     @endcan
                 </ul>
             </li>

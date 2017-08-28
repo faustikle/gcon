@@ -67,12 +67,16 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->name('ocorrencia.index')
         ->middleware('can:ocorrencias.listar');
 
-    Route::get('/ocorrencia/{ocorrencia}', 'OcorrenciaController@visualizar')
-        ->name('ocorrencia.visualizar')
-        ->middleware('can:ocorrencias.visualizar');
-
     Route::post('/ocorrencia/{ocorrencia}/resolver', 'OcorrenciaController@resolver')
         ->name('ocorrencia.resolver')
         ->middleware('can:ocorrencias.resolver');
+
+    Route::get('/ocorrencia/nova', 'OcorrenciaController@registrar')
+        ->name('ocorrencia.registrar')
+        ->middleware('can:ocorrencias.registrar');
+
+    Route::post('/ocorrencia/nova', 'OcorrenciaController@salvar')
+        ->name('ocorrencia.salvar')
+        ->middleware('can:ocorrencias.registrar');
 });
 

@@ -47,5 +47,14 @@ return [
     'ocorrencia' => [
         'resolvida-sucesso' => 'Ocorrência resolvida com sucesso!',
         'resolvida-erro' => 'Ocorreu algum erro ao resolver a ocorrência.',
+        'cadastro-sucesso' => 'Ocorrência registrada com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao registrar a ocorrência.',
+        'form' => [
+            // Titulo
+            'titulo.required' => 'O titulo é obrigatório',
+
+            //Descricao
+            'descricao.required' => 'A descrição é obrigatória',
+        ]
     ]
 ];
