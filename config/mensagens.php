@@ -30,12 +30,12 @@ return [
             //Data Abertura
             'data_abertura.required'  => 'A data de abertura é obrigatória',
             'data_abertura.date'  => 'A data de abertura deve ser uma data válida',
-            'data_abertura.after_or_equal'  => 'A data de abertura deve ser maior que hoje.',
+            'data_abertura.data_futura'  => 'A data de abertura deve ser maior que hoje',
 
             // Data Encerramento
             'data_encerramento.required'  => 'A data de encerramento é obrigatória',
             'data_encerramento.date'  => 'A data de encerramento deve ser uma data válida',
-            'data_encerramento.after_or_equal'  => 'A data de encerramento deve ser maior que hoje.',
+            'data_encerramento.data_futura'  => 'A data de encerramento deve ser maior que hoje.',
         ]
     ],
     'votacao' => [

@@ -39,12 +39,12 @@ class Reuniao extends Model implements Formable
 
     public function getDataAberturaAttribute($dataAbertura)
     {
-        return Carbon::createFromFormat('Y-m-d h:s:i', $dataAbertura);
+        return Carbon::createFromFormat('Y-m-d H:s:i', $dataAbertura);
     }
 
     public function getDataEncerramentoAttribute($dataEncerramento)
     {
-        return Carbon::createFromFormat('Y-m-d h:s:i', $dataEncerramento);
+        return Carbon::createFromFormat('Y-m-d H:s:i', $dataEncerramento);
     }
 
     public function getAgendadaAttribute()
