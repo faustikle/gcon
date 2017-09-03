@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Endereco\Cidade;
 use Illuminate\Database\Eloquent\Model;
 
 final class Condominio extends Model
@@ -27,6 +28,11 @@ final class Condominio extends Model
     public function ocorrencias()
     {
         return $this->hasMany(Ocorrencia::class, 'condominio_id');
+    }
+
+    public function cidade()
+    {
+        return $this->belongsTo(Cidade::class, 'cidade_id');
     }
 
     public function equals(Condominio $condominio)

@@ -17,7 +17,10 @@ class CreateCondominiosTable extends Migration
             $table->increments('condominio_id');
             $table->string('nome');
             $table->boolean('ativo')->default(false);
+            $table->integer('cidade_id');
             $table->timestamps();
+
+            $table->foreign('cidade_id')->references('cidade_id')->on('cidades')->onDelete('cascade');
         });
     }
 
