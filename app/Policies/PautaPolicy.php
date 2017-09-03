@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Pauta;
+use App\Models\Reuniao\Pauta;
 use App\Models\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

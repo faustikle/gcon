@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormPautaRequest;
-use App\Models\Pauta;
-use App\Models\Reuniao;
+use App\Models\Reuniao\Pauta;
+use App\Models\Reuniao\Reuniao;
 
 final class PautaController extends Controller
 {

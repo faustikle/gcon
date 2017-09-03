@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reuniao;
 
+use App\Models\Condominio;
+use App\Models\Formable;
+use App\Models\Usuario;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 

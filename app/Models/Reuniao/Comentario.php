@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reuniao;
 
+use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 
 final class Comentario extends Model

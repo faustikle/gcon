@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Reuniao;
+use App\Models\Reuniao\Reuniao;
 use App\Models\Condominio;
-use App\Models\Pauta;
+use App\Models\Reuniao\Pauta;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 

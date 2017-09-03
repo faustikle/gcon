@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reuniao;
 
-use Carbon\Carbon;
+use App\Models\Formable;
 use Illuminate\Database\Eloquent\Model;
 
 final class Pauta extends Model implements Formable

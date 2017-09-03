@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Reuniao\Pauta;
+use App\Models\Reuniao\Voto;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

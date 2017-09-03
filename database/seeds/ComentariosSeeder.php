@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Usuario;
-use App\Models\Comentario;
+use App\Models\Reuniao\Comentario;
 use Illuminate\Database\Seeder;
 
 class ComentariosSeeder extends Seeder

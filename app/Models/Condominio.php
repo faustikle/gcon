@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Endereco\Cidade;
+use App\Models\Reuniao\Reuniao;
 use Illuminate\Database\Eloquent\Model;
 
 final class Condominio extends Model

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comentario;
-use App\Models\Pauta;
+use App\Models\Reuniao\Comentario;
+use App\Models\Reuniao\Pauta;
 use App\Models\Usuario;
-use App\Models\Voto;
+use App\Models\Reuniao\Voto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Reuniao;
+use App\Models\Reuniao\Reuniao;
 use App\Models\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

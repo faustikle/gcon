@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Ocorrencia;
-use App\Models\Pauta;
-use App\Models\Reuniao;
+use App\Models\Reuniao\Pauta;
+use App\Models\Reuniao\Reuniao;
 use App\Models\Usuario;
 use App\Policies\OcorrenciaPolicy;
 use App\Policies\PautaPolicy;

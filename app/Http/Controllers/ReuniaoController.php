@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormReuniaoRequest;
-use App\Models\Reuniao;
+use App\Models\Reuniao\Reuniao;
 use Illuminate\Support\Facades\Auth;
 
 class ReuniaoController extends Controller
