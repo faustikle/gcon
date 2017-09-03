@@ -3,11 +3,13 @@
 namespace App\Models\Servico;
 
 use App\Models\Endereco\Cidade;
-use App\Models\Formable;
+use App\Models\Identificable;
 use Illuminate\Database\Eloquent\Model;
 
-final class PrestadorServico extends Model implements Formable
+final class PrestadorServico extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'prestador_servico_id';
 
     protected $table = 'prestadores_servico';
@@ -24,16 +26,6 @@ final class PrestadorServico extends Model implements Formable
         'bairro',
         'cep',
     ];
-
-    public function getPrimaryKeyName(): string
-    {
-        return $this->primaryKey;
-    }
-
-    public function getId(): int
-    {
-        return $this->prestador_servico_id;
-    }
 
     public function cidade()
     {

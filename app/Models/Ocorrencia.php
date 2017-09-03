@@ -5,8 +5,10 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Ocorrencia extends Model implements Formable
+class Ocorrencia extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'ocorrencia_id';
 
     protected $table = 'ocorrencias';
@@ -16,16 +18,6 @@ class Ocorrencia extends Model implements Formable
         'descricao',
         'reclamada',
     ];
-
-    public function getPrimaryKeyName(): string
-    {
-        return $this->primaryKey;
-    }
-
-    public function getId(): int
-    {
-        return $this->ocorrencia_id;
-    }
 
     public function condominio()
     {

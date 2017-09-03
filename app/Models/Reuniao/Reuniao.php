@@ -3,13 +3,15 @@
 namespace App\Models\Reuniao;
 
 use App\Models\Condominio;
-use App\Models\Formable;
+use App\Models\Identificable;
 use App\Models\Usuario;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Reuniao extends Model implements Formable
+class Reuniao extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'reuniao_id';
 
     protected $table = 'reunioes';
@@ -19,16 +21,6 @@ class Reuniao extends Model implements Formable
         'data_abertura',
         'data_encerramento',
     ];
-
-    public function getPrimaryKeyName(): string
-    {
-        return $this->primaryKey;
-    }
-
-    public function getId(): int
-    {
-        return $this->reuniao_id;
-    }
 
     public function condominio()
     {

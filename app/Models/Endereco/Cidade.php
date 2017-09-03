@@ -2,10 +2,13 @@
 
 namespace App\Models\Endereco;
 
+use App\Models\Identificable;
 use Illuminate\Database\Eloquent\Model;
 
 final class Cidade extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'cidade_id';
 
     protected $table = 'cidades';

@@ -4,10 +4,13 @@ namespace App\Models;
 
 use App\Models\Endereco\Cidade;
 use App\Models\Reuniao\Reuniao;
+use App\Models\Servico\AvaliacaoPrestador;
 use Illuminate\Database\Eloquent\Model;
 
 final class Condominio extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'condominio_id';
 
     protected $table = 'condominios';
@@ -29,6 +32,11 @@ final class Condominio extends Model
     public function ocorrencias()
     {
         return $this->hasMany(Ocorrencia::class, 'condominio_id');
+    }
+
+    public function avaliacoes_prestador()
+    {
+        return $this->hasMany(AvaliacaoPrestador::class, 'condominio_id');
     }
 
     public function cidade()

@@ -2,11 +2,13 @@
 
 namespace App\Models\Reuniao;
 
-use App\Models\Formable;
+use App\Models\Identificable;
 use Illuminate\Database\Eloquent\Model;
 
-final class Pauta extends Model implements Formable
+final class Pauta extends Model
 {
+    use Identificable;
+
     const ACEITA = 'Aceita',
           RECUSADA = 'Recusada',
           PENDENTE = 'Pendente';
@@ -19,16 +21,6 @@ final class Pauta extends Model implements Formable
         'titulo',
         'descricao',
     ];
-
-    public function getPrimaryKeyName(): string
-    {
-        return $this->primaryKey;
-    }
-
-    public function getId(): int
-    {
-        return $this->reuniao_id;
-    }
 
     public function votos()
     {

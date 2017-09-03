@@ -2,11 +2,14 @@
 
 namespace App\Models\Reuniao;
 
+use App\Models\Identificable;
 use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 
 final class Voto extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'voto_id';
 
     protected $table = 'votos';

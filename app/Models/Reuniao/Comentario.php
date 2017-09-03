@@ -2,11 +2,14 @@
 
 namespace App\Models\Reuniao;
 
+use App\Models\Identificable;
 use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 
 final class Comentario extends Model
 {
+    use Identificable;
+
     protected $primaryKey = 'comentario_id';
 
     protected $table = 'comentarios';
