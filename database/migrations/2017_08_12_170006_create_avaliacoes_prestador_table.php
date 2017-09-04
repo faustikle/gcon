@@ -17,9 +17,11 @@ class CreateAvaliacoesPrestadorTable extends Migration
             $table->increments('avaliacao_id');
             $table->smallInteger('avaliacao');
             $table->integer('condominio_id')->unsigned();
+            $table->integer('prestador_categoria_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('condominio_id')->references('condominio_id')->on('condominios')->onDelete('cascade');
+            $table->foreign('prestador_categoria_id')->references('prestador_categoria_id')->on('prestadores_categorias')->onDelete('cascade');
         });
     }
 

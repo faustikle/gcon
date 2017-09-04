@@ -22,4 +22,9 @@ final class AvaliacaoPrestador extends Model
     {
         return $this->belongsTo(Condominio::class, 'condominio_id');
     }
+
+    public function prestador_categoria()
+    {
+        return $this->belongsTo(PrestadorCategoria::class, 'prestador_categoria_id');
+    }
 }
