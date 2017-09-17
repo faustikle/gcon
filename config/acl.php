@@ -28,4 +28,11 @@ return [
     'prestadores.cadastro' => [Usuario::SINDICO],
     'prestadores.excluir' => [],
     'prestadores.editar' => [],
+
+    'servicos.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'servicos.listar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'servicos.visualizar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'servicos.cadastro' => [Usuario::SINDICO],
+    'servicos.excluir' => [Usuario::SINDICO],
+    'servicos.editar' => [Usuario::SINDICO],
 ];

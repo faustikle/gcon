@@ -57,11 +57,18 @@ return [
             'descricao.required' => 'A descrição é obrigatória',
         ]
     ],
+    'servicos' => [
+        'cadastro-sucesso' => 'Serviço salvo com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar o serviço.',
+        'excluir-sucesso' => 'Serviço excluido com sucesso!',
+        'excluir-erro' => 'Ocorreu algum erro ao excluir serviço.',
+        'form' => []
+    ],
     'prestadores_servico' => [
         'cadastro-sucesso' => 'Prestador de Serviço salvo com sucesso!',
         'cadastro-erro' => 'Ocorreu algum erro ao salvar o prestador de serviço.',
         'excluir-sucesso' => 'Prestador de Serviço excluido com sucesso!',
-        'excluir-erro' => 'Ocorreu algum erro ao excluir a reunião.',
+        'excluir-erro' => 'Ocorreu algum erro ao excluir o serviço.',
         'form' => [
             // Nome
             'nome.required' => 'O nome é obrigatório',

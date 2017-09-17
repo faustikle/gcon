@@ -105,5 +105,32 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/prestador-servico/{prestador}/editar', 'PrestadoresServicoController@editar')
         ->name('prestadores.editar')
         ->middleware('can:prestadores.editar');
+
+    /**
+     * SERVICOS
+     */
+    Route::get('/servicos', 'ServicoController@index')
+        ->name('servicos.index')
+        ->middleware('can:servicos.listar');
+
+    Route::get('/servico/{prestador}', 'ServicoController@visualizar')
+        ->name('servicos.visualizar')
+        ->middleware('can:servicos.visualizar');
+
+    Route::get('/servicos/novo', 'ServicoController@cadastrar')
+        ->name('servicos.cadastrar')
+        ->middleware('can:servicos.cadastro');
+
+    Route::post('/servicos/novo', 'ServicoController@salvar')
+        ->name('servicos.salvar')
+        ->middleware('can:servicos.cadastro');
+
+    Route::post('/servico/{prestador}/excluir', 'ServicoController@excluir')
+        ->name('servicos.excluir')
+        ->middleware('can:servicos.excluir');
+
+    Route::get('/servico/{prestador}/editar', 'ServicoController@editar')
+        ->name('servicos.editar')
+        ->middleware('can:servicos.editar');
 });
 
