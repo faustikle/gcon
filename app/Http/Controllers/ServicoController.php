@@ -15,7 +15,7 @@ class ServicoController extends Controller
 
     public function index_compartilhados()
     {
-        $servicos = Servico::all()->get();
+        $servicos = Servico::all();
     }
 
     public function visualizar(Servico $servico)
