@@ -9,6 +9,7 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class ReuniaoPolicy
 {
     use HandlesAuthorization;
+    use ProprioCondominioTrait;
 
     public function before(Usuario $usuario)
     {
@@ -24,7 +25,7 @@ class ReuniaoPolicy
      */
     public function editar(Usuario $usuario, Reuniao $reuniao)
     {
-        return $this->isProprioCondominio($usuario, $reuniao);
+        return $this->isProprioCondominio($usuario, $reuniao->condominio);
     }
 
     /**
@@ -34,7 +35,7 @@ class ReuniaoPolicy
      */
     public function excluir(Usuario $usuario, Reuniao $reuniao)
     {
-        return $this->isProprioCondominio($usuario, $reuniao);
+        return $this->isProprioCondominio($usuario, $reuniao->condominio);
     }
 
     /**
@@ -44,19 +45,6 @@ class ReuniaoPolicy
      */
     public function addPauta(Usuario $usuario, Reuniao $reuniao)
     {
-        return $this->isProprioCondominio($usuario, $reuniao);
-    }
-
-    /**
-     * @param Usuario $usuario
-     * @param Reuniao $reuniao
-     * @return bool
-     */
-    private function isProprioCondominio(Usuario $usuario, Reuniao $reuniao): bool
-    {
-        $condominioUsuario = $usuario->condominio;
-        $condominioReuniao = $reuniao->condominio;
-
-        return $condominioUsuario->equals($condominioReuniao);
+        return $this->isProprioCondominio($usuario, $reuniao->condominio);
     }
 }
