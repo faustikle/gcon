@@ -10,6 +10,8 @@ final class AvaliacaoPrestador extends Model
 {
     use Identificable;
 
+    const AVALIACAO_MAXIMA = 5;
+
     protected $primaryKey = 'avaliacao_id';
 
     protected $table = 'avaliacoes_prestador';

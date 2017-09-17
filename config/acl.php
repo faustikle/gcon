@@ -21,4 +21,11 @@ return [
     'ocorrencias.visualizar' => [Usuario::SINDICO, Usuario::MORADOR],
     'ocorrencias.registrar' => [Usuario::SINDICO, Usuario::MORADOR],
     'ocorrencias.resolver' => [Usuario::SINDICO],
+
+    'prestadores.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'prestadores.listar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'prestadores.visualizar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'prestadores.cadastro' => [Usuario::SINDICO],
+    'prestadores.excluir' => [],
+    'prestadores.editar' => [],
 ];

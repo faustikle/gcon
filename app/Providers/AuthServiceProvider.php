@@ -5,9 +5,11 @@ namespace App\Providers;
 use App\Models\Ocorrencia;
 use App\Models\Reuniao\Pauta;
 use App\Models\Reuniao\Reuniao;
+use App\Models\Servico\PrestadorServico;
 use App\Models\Usuario;
 use App\Policies\OcorrenciaPolicy;
 use App\Policies\PautaPolicy;
+use App\Policies\PrestadorServicoPolicy;
 use App\Policies\ReuniaoPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -23,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
         Reuniao::class => ReuniaoPolicy::class,
         Pauta::class => PautaPolicy::class,
         Ocorrencia::class => OcorrenciaPolicy::class,
+        PrestadorServico::class => PrestadorServicoPolicy::class,
     ];
 
     /**

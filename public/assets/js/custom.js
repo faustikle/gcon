@@ -95,10 +95,23 @@ $(document).ready(function() {
         });
     }
 
+    /* Rate Yo */
+
+    function init_RateYo() {
+        $(".rateYo").rateYo({
+            halfStar: true,
+            normalFill: '#cfcfcf',
+            ratedFill: '#5A738E'
+        });
+    }
+
     /* DATA TABLES */
 
     function init_DataTables() {
         $('#datatable').dataTable();
+        $('#datatable').on( 'draw.dt', function () {
+            init_RateYo()
+        } );
 
         $('#datatable-keytable').DataTable({
             keys: true
@@ -119,7 +132,13 @@ $(document).ready(function() {
         });
     };
 
+    /* SELECT2 */
+    $('.select2_multiple').select2({
+        theme: 'classic'
+    });
+
     init_DataTables();
+    init_RateYo();
 });
 // /Sidebar
 

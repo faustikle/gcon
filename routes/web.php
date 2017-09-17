@@ -78,5 +78,32 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::post('/ocorrencia/nova', 'OcorrenciaController@salvar')
         ->name('ocorrencia.salvar')
         ->middleware('can:ocorrencias.registrar');
+
+    /**
+     * PRESTADORES DE SERVIÇO
+     */
+    Route::get('/prestadores-servico', 'PrestadoresServicoController@index')
+        ->name('prestadores.index')
+        ->middleware('can:prestadores.listar');
+
+    Route::get('/prestador-servico/{prestador}', 'PrestadoresServicoController@visualizar')
+        ->name('prestadores.visualizar')
+        ->middleware('can:prestadores.visualizar');
+
+    Route::get('/prestadores-servico/novo', 'PrestadoresServicoController@cadastrar')
+        ->name('prestadores.cadastrar')
+        ->middleware('can:prestadores.cadastro');
+
+    Route::post('/prestadores-servico/novo', 'PrestadoresServicoController@salvar')
+        ->name('prestadores.salvar')
+        ->middleware('can:prestadores.cadastro');
+
+    Route::post('/prestador-servico/{prestador}/excluir', 'PrestadoresServicoController@excluir')
+        ->name('prestadores.excluir')
+        ->middleware('can:prestadores.excluir');
+
+    Route::get('/prestador-servico/{prestador}/editar', 'PrestadoresServicoController@editar')
+        ->name('prestadores.editar')
+        ->middleware('can:prestadores.editar');
 });
 

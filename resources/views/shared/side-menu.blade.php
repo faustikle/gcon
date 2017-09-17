@@ -28,11 +28,23 @@
             @endcan
             <li><a><i class="fa fa-wrench"></i> Serviço <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    <li><a href="#">Cadastrar</a></li>
                     <li><a href="#">Listar locais</a></li>
                     <li><a href="#">Listar compartilhados</a></li>
-                    <li><a href="#">Cadastrar</a></li>
                 </ul>
             </li>
+            @can('prestadores.menu')
+            <li><a><i class="fa fa-wrench"></i> Prestadores de Serviço <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    @can('prestadores.listar')
+                        <li><a href="{{ route('prestadores.index') }}">Listar</a></li>
+                    @endcan
+                    @can('prestadores.cadastro')
+                        <li><a href="{{ route('prestadores.cadastrar')  }}">Cadastrar</a></li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
             <li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="#">Listar</a></li>

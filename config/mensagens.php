@@ -25,7 +25,7 @@ return [
         'form' => [
             // Titulo
             'titulo.required' => 'O titulo é obrigatório',
-            'titulo.max' => 'O título da reunião deve ter no máximo 255 caracteres',
+            'titulo.max' => 'O título da reunião deve ter no máximo :max caracteres',
 
             //Data Abertura
             'data_abertura.required'  => 'A data de abertura é obrigatória',
@@ -56,5 +56,49 @@ return [
             //Descricao
             'descricao.required' => 'A descrição é obrigatória',
         ]
-    ]
+    ],
+    'prestadores_servico' => [
+        'cadastro-sucesso' => 'Prestador de Serviço salvo com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar o prestador de serviço.',
+        'excluir-sucesso' => 'Prestador de Serviço excluido com sucesso!',
+        'excluir-erro' => 'Ocorreu algum erro ao excluir a reunião.',
+        'form' => [
+            // Nome
+            'nome.required' => 'O nome é obrigatório',
+            'nome.max' => 'O nome do prestador de serviço deve ter no máximo :max caracteres',
+
+            // Responsavel
+            'responsavel.required' => 'O responsável é obrigatório',
+            'responsavel.max' => 'O responsável deve ter no máximo :max caracteres',
+
+            // Telefone/Celular
+            'telefone.max' => 'O telefone deve ter no máximo :max caracteres',
+            'celular.max' => 'O telefone deve ter no máximo :max caracteres',
+
+            // CPF/CNPJ
+            'cpf.max' => 'O CPF deve ter no máximo :max caracteres',
+            'cnpj.max' => 'O CNPJ deve ter no máximo :max caracteres',
+            'cnpj.required_without' => 'É necessário informar o CPF e/ou CNPJ',
+            'cpf.required_without' => 'É necessário informar o CPF e/ou CNPJ',
+
+            // Endereco
+            'endereco.required' => 'O endereço é obrigatório',
+            'endereco.max' => 'O endereço deve ter no máximo :max caracteres',
+
+            // Numero
+            'numero.required' => 'O numero é obrigatório',
+            'numero.max' => 'O numero deve ter no máximo :max caracteres',
+
+            // Bairro
+            'bairro.required' => 'O bairro é obrigatório',
+            'bairro.max' => 'O bairro deve ter no máximo :max caracteres',
+
+            // CEP
+            'cep.required' => 'O CEP é obrigatório',
+            'cep.digits' => 'O CEP deve ter :digits dígitos',
+
+            // Categoria
+            'categorias.required' => 'É necessário informar ao menos uma categoria',
+        ]
+    ],
 ];

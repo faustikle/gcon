@@ -18,6 +18,8 @@
 <script src="{{ asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js') }}"></script>
+<script src="{{ asset('vendors/rateyo/jquery.rateyo.min.js') }}"></script>
+<script src="{{ asset('vendors/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 @if (session('flash-error'))
     @include('shared.alert', [
