@@ -117,7 +117,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->name('servicos.index.compartilhados')
         ->middleware('can:servicos.listar.compartilhados');
 
-    Route::get('/servico/{prestador}', 'ServicoController@visualizar')
+    Route::get('/servico/{servico}', 'ServicoController@visualizar')
         ->name('servicos.visualizar')
         ->middleware('can:servicos.visualizar');
 
@@ -129,11 +129,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->name('servicos.salvar')
         ->middleware('can:servicos.cadastro');
 
-    Route::post('/servico/{prestador}/excluir', 'ServicoController@excluir')
+    Route::post('/servico/{servico}/excluir', 'ServicoController@excluir')
         ->name('servicos.excluir')
         ->middleware('can:servicos.excluir');
 
-    Route::get('/servico/{prestador}/editar', 'ServicoController@editar')
+    Route::get('/servico/{servico}/editar', 'ServicoController@editar')
         ->name('servicos.editar')
         ->middleware('can:servicos.editar');
 });

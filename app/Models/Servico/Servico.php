@@ -5,6 +5,7 @@ namespace App\Models\Servico;
 use App\Models\Condominio;
 use App\Models\Identificable;
 use App\Models\Usuario;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 final class Servico extends Model
@@ -30,6 +31,16 @@ final class Servico extends Model
     public function prestador_servico()
     {
         return $this->belongsTo(PrestadorServico::class, 'prestador_servico_id');
+    }
+
+    public function getDataAttribute($data)
+    {
+        return Carbon::createFromFormat('Y-m-d H:s:i', $data);
+    }
+
+    public function getValorFormatadoAttribute()
+    {
+        return 'R$ '. number_format($this->valor, 2, ',', '.');
     }
 
     public function scopePorUsuario($query, Usuario $usuario)
