@@ -62,7 +62,26 @@ return [
         'cadastro-erro' => 'Ocorreu algum erro ao salvar o serviço.',
         'excluir-sucesso' => 'Serviço excluido com sucesso!',
         'excluir-erro' => 'Ocorreu algum erro ao excluir serviço.',
-        'form' => []
+        'form' => [
+            // Titulo
+            'titulo.required' => 'O titulo é obrigatório',
+            'titulo.max' => 'O título do serviço deve ter no máximo :max caracteres',
+
+            // Descrição
+            'descricao.required' => 'A descricao é obrigatória',
+
+            // Valor
+            'valor.required' => 'O valor é obrigatório',
+            'valor.numeric' => 'Valor inválido.',
+
+            // Data
+            'data.required' => 'A data é obrigatória',
+            'data.date'  => 'A data deve ser uma data válida',
+            'data.data_futura'  => 'A data deve ser maior que hoje',
+
+            // Prestador
+            'prestador.required' => 'O prestador de serviço é obrigatório',
+        ]
     ],
     'prestadores_servico' => [
         'cadastro-sucesso' => 'Prestador de Serviço salvo com sucesso!',

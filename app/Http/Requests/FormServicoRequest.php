@@ -14,12 +14,17 @@ final class FormServicoRequest extends FormRequest
     public function rules()
     {
         return [
+            'titulo' => 'required|max:255',
+            'descricao' => 'required',
+            'valor' => 'required|numeric',
+            'data' => 'required|date|data_futura',
+            'prestador' => 'required',
         ];
     }
 
     public function messages()
     {
-        return config('mensagens.servico.form');
+        return config('mensagens.servicos.form');
     }
 
     public function isUpdate(): bool

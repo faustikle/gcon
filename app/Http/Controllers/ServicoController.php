@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormServicoRequest;
+use App\Models\Servico\PrestadorServico;
 use App\Models\Servico\Servico;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,7 @@ class ServicoController extends Controller
 
     public function cadastrar()
     {
+        return view('servicos.cadastro', $this->getSelectsPopulate());
     }
 
     public function editar(Servico $servico)
@@ -34,6 +36,25 @@ class ServicoController extends Controller
 
     public function salvar(FormServicoRequest $request)
     {
+        $prestadorServico = PrestadorServico::find($request->input('prestador'));
+
+        if ($request->isUpdate()) {
+            $servico = Servico::find($request->get('servico_id'));
+            $servico->fill($request->input());
+        } else {
+            $servico = new Servico($request->input());
+            $servico->condominio()->associate(Auth::user()->condominio);
+        }
+
+        $servico->prestador_servico()->associate($prestadorServico);
+
+        if ($servico->save()) {
+            return redirect()
+                ->route('servicos.index')
+                ->with('flash-success', config('mensagens.servicos.cadastro-sucesso'));
+        }
+
+        return redirect()->back()->with('flash-error', config('mensagens.prestadores_servico.cadastro-erro'));
     }
 
     public function excluir(Servico $servico)
@@ -49,5 +70,14 @@ class ServicoController extends Controller
         return redirect()
             ->back()
             ->with('flash-error', config('mensagens.servicos.excluir-erro'));
+    }
+
+    private function getSelectsPopulate(): array
+    {
+        $prestadores = PrestadorServico::all()->mapWithKeys(function (PrestadorServico $prestador) {
+            return [$prestador->getId() => $prestador->nome];
+        });
+
+        return compact('prestadores');
     }
 }
