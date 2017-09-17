@@ -26,13 +26,21 @@
                 </ul>
             </li>
             @endcan
+            @can('servicos.menu')
             <li><a><i class="fa fa-wrench"></i> Serviço <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Cadastrar</a></li>
-                    <li><a href="#">Listar locais</a></li>
-                    <li><a href="#">Listar compartilhados</a></li>
+                    @can('servicos.cadastro')
+                        <li><a href="{{ route('servicos.cadastrar') }}">Cadastrar</a></li>
+                    @endcan
+                    @can('servicos.visualizar.locais')
+                        <li><a href="{{ route('servicos.index') }}">Listar locais</a></li>
+                    @endcan
+                    @can('servicos.visualizar.compartilhados')
+                        <li><a href="{{ route('servicos.index.compartilhados') }}">Listar compartilhados</a></li>
+                    @endcan
                 </ul>
             </li>
+            @endcan
             @can('prestadores.menu')
             <li><a><i class="fa fa-wrench"></i> Prestadores de Serviço <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">

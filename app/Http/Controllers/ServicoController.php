@@ -13,6 +13,11 @@ class ServicoController extends Controller
         $servicos = Servico::porUsuario(Auth::user())->get();
     }
 
+    public function index_compartilhados()
+    {
+        $servicos = Servico::all()->get();
+    }
+
     public function visualizar(Servico $servico)
     {
     }

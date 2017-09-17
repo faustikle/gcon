@@ -31,6 +31,7 @@ return [
 
     'servicos.menu' => [Usuario::SINDICO, Usuario::MORADOR],
     'servicos.listar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'servicos.listar.compartilhados' => [Usuario::SINDICO, Usuario::MORADOR],
     'servicos.visualizar' => [Usuario::SINDICO, Usuario::MORADOR],
     'servicos.cadastro' => [Usuario::SINDICO],
     'servicos.excluir' => [Usuario::SINDICO],
