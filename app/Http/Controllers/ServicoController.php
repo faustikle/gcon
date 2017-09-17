@@ -23,6 +23,7 @@ class ServicoController extends Controller
 
     public function visualizar(Servico $servico)
     {
+        return view('servicos.visualizar', compact('servico'));
     }
 
     public function cadastrar()
@@ -32,6 +33,7 @@ class ServicoController extends Controller
 
     public function editar(Servico $servico)
     {
+        return view('servicos.cadastro', array_merge($this->getSelectsPopulate(), compact('servico')));
     }
 
     public function salvar(FormServicoRequest $request)
