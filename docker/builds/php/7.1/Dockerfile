@@ -5,6 +5,7 @@ RUN buildDeps=" \
     " \
     runtimeDeps=" \
         curl \
+        locales \
         libfreetype6-dev \
         libicu-dev \
         libjpeg-dev \
@@ -32,3 +33,4 @@ RUN buildDeps=" \
     && apt-get purge -y --auto-remove $buildDeps \
     && rm -r /var/lib/apt/lists/* \
     && a2enmod rewrite
+RUN locale-gen pt_BR.UTF-8
