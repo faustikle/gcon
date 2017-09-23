@@ -19,6 +19,8 @@ class ServicoController extends Controller
     public function index_compartilhados()
     {
         $servicos = Servico::all();
+
+        return view('servicos.index_compartilhados', compact('servicos'));
     }
 
     public function visualizar(Servico $servico)
