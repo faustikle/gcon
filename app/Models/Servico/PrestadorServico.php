@@ -2,11 +2,14 @@
 
 namespace App\Models\Servico;
 
+use App\Models\Condominio;
 use App\Models\Endereco\Cidade;
 use App\Models\Identificable;
 use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Webmozart\Assert\Assert;
 
 final class PrestadorServico extends Model
 {
@@ -112,5 +115,31 @@ final class PrestadorServico extends Model
                 $categoria->delete();
             }
         }
+    }
+
+    /**
+     * @param Condominio $condominio
+     * @param CategoriaPrestador $categoria
+     * @param int $avaliacao
+     * @return bool
+     */
+    public function avaliar(Condominio $condominio, CategoriaPrestador $categoria, int $avaliacao): bool
+    {
+        Assert::lessThanEq($avaliacao, AvaliacaoPrestador::AVALIACAO_MAXIMA);
+
+        $prestadorCategoria = $this
+            ->categorias()
+            ->where('categoria_prestador_id', $categoria->getId())
+            ->first();
+
+        if (!$prestadorCategoria) {
+            throw new ModelNotFoundException();
+        }
+
+        $avaliacao = new AvaliacaoPrestador(['avaliacao' => $avaliacao]);
+        $avaliacao->condominio()->associate($condominio);
+        $avaliacao->prestador_categoria()->associate($prestadorCategoria);
+
+        return $avaliacao->save();
     }
 }
