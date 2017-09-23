@@ -1,5 +1,7 @@
 <div>
+    @if(isset($label))
     <label>{{ $label or 'Label' }}</label>
+    @endif
     <textarea
             class="form-control {{ $errors->has($nome) ? 'parsley-error' : '' }}"
             placeholder="{{ $placeholder or '' }}"

@@ -33,6 +33,11 @@ final class Servico extends Model
         return $this->belongsTo(PrestadorServico::class, 'prestador_servico_id');
     }
 
+    public function comentarios()
+    {
+        return $this->hasMany(ComentarioServico::class, 'servico_id');
+    }
+
     public function getDataAttribute($data)
     {
         return Carbon::createFromFormat('Y-m-d H:s:i', $data);
@@ -50,5 +55,21 @@ final class Servico extends Model
         }
 
         return $query->where('condominio_id', $usuario->condominio_id);
+    }
+
+    /**
+     * @param Usuario $usuario
+     * @param string $comentario
+     * @return ComentarioServico
+     */
+    public function comentar(Usuario $usuario, string $comentario): ComentarioServico
+    {
+        $comentarioServico = new ComentarioServico(['comentario' => $comentario]);
+        $comentarioServico->servico()->associate($this);
+        $comentarioServico->usuario()->associate($usuario);
+
+        $this->comentarios()->save($comentarioServico);
+
+        return $comentarioServico;
     }
 }

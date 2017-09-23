@@ -2,53 +2,30 @@
 
 namespace App\Models\Servico;
 
-use App\Models\Condominio;
 use App\Models\Identificable;
 use App\Models\Usuario;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-final class Servico extends Model
+final class ComentarioServico extends Model
 {
     use Identificable;
 
-    protected $primaryKey = 'servico_id';
+    protected $primaryKey = 'comentario_servico_id';
 
-    protected $table = 'servicos';
+    protected $table = 'comentarios_servicos';
 
     protected $fillable = [
-        'titulo',
-        'descricao',
-        'valor',
-        'data'
+        'comentario'
     ];
 
-    public function condominio()
+    public function usuario()
     {
-        return $this->belongsTo(Condominio::class, 'condominio_id');
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 
-    public function prestador_servico()
+    public function servico()
     {
-        return $this->belongsTo(PrestadorServico::class, 'prestador_servico_id');
-    }
-
-    public function getDataAttribute($data)
-    {
-        return Carbon::createFromFormat('Y-m-d H:s:i', $data);
-    }
-
-    public function getValorFormatadoAttribute()
-    {
-        return 'R$ '. number_format($this->valor, 2, ',', '.');
-    }
-
-    public function scopePorUsuario($query, Usuario $usuario)
-    {
-        if ($usuario->isAdministrador()) {
-            return $query;
-        }
-
-        return $query->where('condominio_id', $usuario->condominio_id);
+        return $this->belongsTo(Servico::class, 'servico_id');
     }
 }

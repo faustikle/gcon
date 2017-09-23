@@ -136,5 +136,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/servico/{servico}/editar', 'ServicoController@editar')
         ->name('servicos.editar')
         ->middleware('can:servicos.editar');
+
+    Route::post('/servico/{servico}/comentar', 'ServicoController@comentar')
+        ->name('servicos.comentar');
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComentariosServicoTable extends Migration
+class CreateComentariosServicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,15 @@ class CreateComentariosServicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('comentarios_', function (Blueprint $table) {
-            $table->increments('usuario_id');
-            $table->string('nome');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('numero_apartamento')->nullable();
-            $table->string('bloco')->nullable();
-            $table->boolean('ativo')->default(false);
-            $table->dateTime('ultimo_acesso');
-            $table->enum('funcao', ['Administrador', 'Sindico', 'Morador', 'Visitante']);
-            $table->integer('condominio_id')->unsigned();
-            $table->rememberToken();
+        Schema::create('comentarios_servicos', function (Blueprint $table) {
+            $table->increments('comentario_servico_id');
+            $table->text('comentario');
+            $table->integer('usuario_id')->unsigned();
+            $table->integer('servico_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('condominio_id')->references('condominio_id')->on('condominios')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('usuario_id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('servico_id')->references('servico_id')->on('servicos')->onDelete('cascade');
         });
     }
 
@@ -38,6 +32,6 @@ class CreateComentariosServicoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('comentarios_servicos');
     }
 }

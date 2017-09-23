@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormServicoRequest;
 use App\Models\Servico\PrestadorServico;
 use App\Models\Servico\Servico;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ServicoController extends Controller
@@ -25,7 +26,9 @@ class ServicoController extends Controller
 
     public function visualizar(Servico $servico)
     {
-        return view('servicos.visualizar', compact('servico'));
+        $comentarios = $servico->comentarios()->orderBy('created_at', 'desc')->get();
+
+        return view('servicos.visualizar', compact('servico', 'comentarios'));
     }
 
     public function cadastrar()
@@ -36,6 +39,19 @@ class ServicoController extends Controller
     public function editar(Servico $servico)
     {
         return view('servicos.cadastro', array_merge($this->getSelectsPopulate(), compact('servico')));
+    }
+
+    public function comentar(Request $request, Servico $servico)
+    {
+        $comentario = $servico->comentar(Auth::user(), $request->input('comentario'));
+
+        if ($comentario) {
+            return redirect()
+                ->route('servicos.visualizar', $servico->getId())
+                ->with('flash-success', config('mensagens.servicos.cadastro-sucesso'));
+        }
+
+        return redirect()->back()->with('flash-error', config('mensagens.prestadores_servico.cadastro-erro'));
     }
 
     public function salvar(FormServicoRequest $request)
