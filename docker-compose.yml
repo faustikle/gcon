@@ -7,15 +7,17 @@ services:
         volumes:
             - "./:/var/www/html"
             - "./docker/confs/000-default.conf:/etc/apache2/sites-available/000-default.conf"
+            - "./docker/confs/GFCC-b6b31fd7296d.json:/etc/GFCC-b6b31fd7296d.json"
+        env_file:
+            - "./docker/confs/google-cloud-storage.env"
         links:
             - banco
     banco:
         image: mysql:5.7
         ports:
             - "3306:3306"
-        environment:
-            - MYSQL_ROOT_PASSWORD=S3G5H7@sfg
-            - MYSQL_DATABASE=gfcc
+        env_file:
+            - "./docker/confs/banco.env"
         volumes:
             - "./docker/database:/var/lib/mysql"
 
