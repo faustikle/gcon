@@ -135,5 +135,21 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
 
     Route::post('/servico/{servico}/comentar', 'ServicoController@comentar')
         ->name('servicos.comentar');
+
+    /**
+     * DOCUMENTOS
+     */
+    Route::get('/documento/{documento}', 'DocumentoController@download')
+        ->name('documentos.download');
+
+    Route::post('/documento/{documento}/excluir', 'DocumentoController@excluir')
+        ->name('documentos.excluir');
+
+    /**
+     * DOCUMENTOS CONDOMINIO
+     */
+    Route::get('/documentos', 'DocumentoCondominioController@index')
+        ->name('documentos-condominio.index')
+        ->middleware('can:documentos-condominio.listar');
 });
 

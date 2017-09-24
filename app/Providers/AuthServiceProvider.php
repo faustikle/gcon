@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Documento;
 use App\Models\Ocorrencia;
 use App\Models\Reuniao\Pauta;
 use App\Models\Reuniao\Reuniao;
 use App\Models\Servico\PrestadorServico;
 use App\Models\Servico\Servico;
 use App\Models\Usuario;
+use App\Policies\DocumentoPolicy;
 use App\Policies\OcorrenciaPolicy;
 use App\Policies\PautaPolicy;
 use App\Policies\PrestadorServicoPolicy;
@@ -29,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         Ocorrencia::class => OcorrenciaPolicy::class,
         PrestadorServico::class => PrestadorServicoPolicy::class,
         Servico::class => ServicoPolicy::class,
+        Documento::class => DocumentoPolicy::class,
     ];
 
     /**

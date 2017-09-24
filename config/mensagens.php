@@ -4,6 +4,11 @@ return [
     'geral' => [
         'permissao-negada' => 'Você não tem permissão para executar esta ação.'
     ],
+    'documentos' => [
+        'nao-encontrado' => 'Este documento não existe mais.',
+        'excluir-sucesso' => 'Documento excluido com sucesso!',
+        'excluir-erro' => 'Ocorreu algum erro ao excluir a documento.',
+    ],
     'pauta' => [
         'cadastro-sucesso' => 'Pauta salva com sucesso!',
         'cadastro-erro' => 'Ocorreu algum erro ao salvar a pauta.',

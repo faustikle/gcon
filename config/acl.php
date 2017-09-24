@@ -36,4 +36,9 @@ return [
     'servicos.cadastro' => [Usuario::SINDICO],
     'servicos.excluir' => [Usuario::SINDICO],
     'servicos.editar' => [Usuario::SINDICO],
+
+    'documentos.excluir' => [Usuario::SINDICO],
+
+    'documentos-condominio.menu' => [Usuario::SINDICO],
+    'documentos-condominio.listar' => [Usuario::SINDICO],
 ];

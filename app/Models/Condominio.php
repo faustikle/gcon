@@ -44,6 +44,11 @@ final class Condominio extends Model
         return $this->belongsTo(Cidade::class, 'cidade_id');
     }
 
+    public function documentos()
+    {
+        return $this->belongsToMany(Documento::class, 'documentos_condominio', 'condominio_id', 'documento_id');
+    }
+
     public function equals(Condominio $condominio)
     {
         return $this->condominio_id === $condominio->condominio_id;
