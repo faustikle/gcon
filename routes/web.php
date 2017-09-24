@@ -113,10 +113,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->name('servicos.index')
         ->middleware('can:servicos.listar');
 
-    Route::get('/servicos/compartilhados', 'ServicoController@index_compartilhados')
-        ->name('servicos.index.compartilhados')
-        ->middleware('can:servicos.listar.compartilhados');
-
     Route::get('/servico/{servico}', 'ServicoController@visualizar')
         ->name('servicos.visualizar')
         ->middleware('can:servicos.visualizar');

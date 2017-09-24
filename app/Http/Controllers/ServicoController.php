@@ -17,13 +17,6 @@ class ServicoController extends Controller
         return view('servicos.index', compact('servicos'));
     }
 
-    public function index_compartilhados()
-    {
-        $servicos = Servico::all();
-
-        return view('servicos.index_compartilhados', compact('servicos'));
-    }
-
     public function visualizar(Servico $servico)
     {
         $comentarios = $servico->comentarios()->orderBy('created_at', 'desc')->get();

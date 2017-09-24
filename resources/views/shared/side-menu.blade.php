@@ -33,10 +33,7 @@
                         <li><a href="{{ route('servicos.cadastrar') }}">Cadastrar</a></li>
                     @endcan
                     @can('servicos.listar')
-                        <li><a href="{{ route('servicos.index') }}">Listar locais</a></li>
-                    @endcan
-                    @can('servicos.listar.compartilhados')
-                        <li><a href="{{ route('servicos.index.compartilhados') }}">Listar compartilhados</a></li>
+                        <li><a href="{{ route('servicos.index') }}">Listar</a></li>
                     @endcan
                 </ul>
             </li>
