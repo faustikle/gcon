@@ -30,7 +30,7 @@
                                 <td style="display: inline-flex;width: 100%">
                                 <a
                                         href="{{ route('documentos.download', $documento->getId()) }}"
-                                        target="_blank"
+                                        download="{{ $documento->caminho }}"
                                         class="btn btn-md btn-success">
                                     <i class="fa fa-download"></i>
                                     </a>

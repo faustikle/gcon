@@ -1,4 +1,8 @@
-<form action="{{ $action or '#' }}" method="{{ $method or 'POST' }}">
+<form
+        action="{{ $action or '#' }}"
+        method="{{ $method or 'POST' }}"
+        class="{{ isset($classes) ? implode(' ', $classes) : '' }}"
+        {{ isset($enctype) ? 'enctype='. $enctype : '' }}>
     {{ csrf_field() }}
 
     @if(isset($model))

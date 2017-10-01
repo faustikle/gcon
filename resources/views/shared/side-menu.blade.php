@@ -54,6 +54,7 @@
             <li><a><i class="fa fa-file-excel-o"></i> Documentos <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="{{ route('documentos-condominio.index') }}">Listar</a></li>
+                    <li><a href="{{ route('documentos-condominio.cadastro') }}">Adicionar</a></li>
                 </ul>
             </li>
             @endcan

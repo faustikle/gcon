@@ -151,5 +151,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/documentos', 'DocumentoCondominioController@index')
         ->name('documentos-condominio.index')
         ->middleware('can:documentos-condominio.listar');
+
+    Route::post('/documentos', 'DocumentoCondominioController@salvar')
+        ->name('documentos-condominio.salvar')
+        ->middleware('can:documentos-condominio.cadastro');
+
+    Route::get('/documentos/novo', 'DocumentoCondominioController@cadastro')
+        ->name('documentos-condominio.cadastro')
+        ->middleware('can:documentos-condominio.cadastro');
 });
 

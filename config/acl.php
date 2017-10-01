@@ -41,4 +41,5 @@ return [
 
     'documentos-condominio.menu' => [Usuario::SINDICO],
     'documentos-condominio.listar' => [Usuario::SINDICO],
+    'documentos-condominio.cadastro' => [Usuario::SINDICO],
 ];

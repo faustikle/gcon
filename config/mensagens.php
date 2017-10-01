@@ -6,8 +6,21 @@ return [
     ],
     'documentos' => [
         'nao-encontrado' => 'Este documento não existe mais.',
+        'cadastro-sucesso' => 'Documento salvo com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar documento.',
         'excluir-sucesso' => 'Documento excluido com sucesso!',
         'excluir-erro' => 'Ocorreu algum erro ao excluir a documento.',
+        'form' => [
+            // Nome
+            'titulo.required' => 'O nome é obrigatório',
+
+            //Descricao
+            'descricao.required' => 'A descrição é obrigatória',
+
+            //Documento
+            'documento.required' => 'O documento é obrigatório',
+            'documento.file' => 'É necessário fazer o upload do arquivo.',
+        ]
     ],
     'pauta' => [
         'cadastro-sucesso' => 'Pauta salva com sucesso!',
