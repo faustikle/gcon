@@ -12,6 +12,15 @@ Route::get('/convite/{token}', 'MoradorController@cadastro')
 Route::post('/convite/{token}', 'MoradorController@salvar')
     ->name('convite.salvar');
 
+/**
+ * CADASTRO CONDOMINIO
+ */
+Route::get('/condominio/novo', 'CondominioController@cadastro')
+    ->name('condominio.cadastro');
+
+Route::post('/condominio/novo', 'CondominioController@salvar')
+    ->name('condominio.salvar');
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/', 'PainelController@index')->name('painel.index');
 

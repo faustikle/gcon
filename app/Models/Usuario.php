@@ -92,7 +92,12 @@ class Usuario extends Authenticatable
 
     public function getUltimoAcessoAttribute($ultimoAcesso)
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $ultimoAcesso);
+        return $ultimoAcesso ? Carbon::createFromFormat('Y-m-d H:i:s', $ultimoAcesso) : null;
+    }
+
+    public function getUltimoAcessoFormatadoAttribute()
+    {
+        return $this->ultimo_acesso ? $this->ultimo_acesso->format('d/m/Y H:i') : '';
     }
 
     /**

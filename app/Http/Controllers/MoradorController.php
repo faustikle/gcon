@@ -8,7 +8,6 @@ use App\Mail\ConviteMorador;
 use App\Models\Convite;
 use App\Models\Usuario;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -19,11 +18,6 @@ class MoradorController extends Controller
         $moradores = Usuario::porUsuario(Auth::user())->get();
 
         return view('morador.index', compact('moradores'));
-    }
-
-    public function excluir(Usuario $usuario)
-    {
-
     }
 
     public function adicionar()
@@ -95,6 +89,7 @@ class MoradorController extends Controller
         $morador = new Usuario([
             'nome' => $request->input('nome'),
             'email' => $convite->email,
+            'ativo' => true,
             'password' => bcrypt($request->input('password')),
             'numero_apartamento' => $convite->numero_apartamento,
             'bloco' => $convite->bloco ?: null,

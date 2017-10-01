@@ -21,7 +21,6 @@
                         <th>Função</th>
                         @unless(Auth::user()->isMorador())
                         <th>Ultimo Acesso</th>
-                        <th>Ações</th>
                         @endunless
                     </tr>
                     </thead>
@@ -33,17 +32,7 @@
                                 <td>{{ $morador->bloco }}</td>
                                 <td>{{ $morador->funcao }}</td>
                                 @unless(Auth::user()->isMorador())
-                                <td>{{ $morador->ultimo_acesso->format('Y-m-d H:i') }}</td>
-                                @endunless
-                                @unless(Auth::user()->isMorador())
-                                <td style="display: inline-flex">
-                                    @can('moradores.excluir')
-                                        <form action="{{ route('moradores.excluir', $morador->getId()) }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-md     btn-danger"><i class="fa fa-trash-o"></i></button>
-                                        </form>
-                                    @endcan
-                                </td>
+                                <td>{{ $morador->ultimo_acesso_formatado }}</td>
                                 @endunless
                             </tr>
                         @endforeach

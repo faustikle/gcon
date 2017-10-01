@@ -4,9 +4,33 @@ return [
     'geral' => [
         'permissao-negada' => 'Você não tem permissão para executar esta ação.'
     ],
+    'cadastro-condominio' => [
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar seu cadastro.',
+        'form' => [
+            // Email
+            'email.required' => 'O email é obrigatório',
+            'email.email' => 'É necessário colocar um email válido.',
+            'email.unique' => 'Este email já esta sendo utilizado.',
+
+            // Nome
+            'nome_condominio.required' => 'O nome do condominio é obrigatório',
+            'nome_sindico.required' => 'O nome do sindico é obrigatório',
+
+            // Numero Apartamento
+            'numero_apartamento.required' => 'O numero do apartamento é obrigatório',
+
+            // Cidade
+            'cidade_id.required' => 'A cidade é obrigatório',
+            'cidade_id.exists' => 'Está cidade não existe.',
+
+            // Senha
+            'password.required' => 'A senha é obrigatória',
+            'password.confirmed' => 'As senhas são diferentes.',
+        ]
+    ],
     'convite-morador' => [
         'cadastro-sucesso' => 'Convite enviado com sucesso!',
-        'cadastro-erro' => 'Ocorreu algum erro ao salvar seu cadstro. Contate seu sindico.',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar seu cadastro. Contate seu sindico.',
         'convite-erro' => 'Ocorreu algum erro ao enviar o convite para o morador.',
         'convite-invalido' => 'Este convite é inválido',
         'form' => [

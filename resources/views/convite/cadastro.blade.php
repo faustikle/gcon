@@ -9,22 +9,6 @@
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="Email" value="{{ $convite->email }}" disabled />
                 </div>
-                <div class="form-group{{ $errors->has('password') ? ' bad' : '' }}">
-                    <input type="password" class="form-control" placeholder="Senha" name="password" required="" />
-                    @if ($errors->has('password'))
-                        <ul class="parsley-errors-list filled" id="parsley-id-20"><li class="parsley-required">{{ $errors->first('password') }}</li></ul>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Senha Novamente" name="password_confirmation" required="" />
-                </div>
-
-                <div class="clearfix"></div>
-
-                <div class="separator">
-                    <div class="clearfix"></div>
-                    <br />
-                </div>
 
                 <div class="form-group{{ $errors->has('nome') ? ' bad' : '' }}">
                     <input type="text" class="form-control" placeholder="Nome" name="nome" value="{{ $convite->nome }}" required="" />
@@ -38,6 +22,22 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Bloco" value="{{ $convite->bloco }}" disabled />
                     </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="separator">
+                    <div class="clearfix"></div>
+                    <br />
+                </div>
+
+                <div class="form-group{{ $errors->has('password') ? ' bad' : '' }}">
+                    <input type="password" class="form-control" placeholder="Senha" name="password" required="" />
+                    @if ($errors->has('password'))
+                        <ul class="parsley-errors-list filled" id="parsley-id-20"><li class="parsley-required">{{ $errors->first('password') }}</li></ul>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Senha Novamente" name="password_confirmation" required="" />
                 </div>
 
                 <div>

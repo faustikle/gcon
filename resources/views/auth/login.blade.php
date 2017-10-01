@@ -21,7 +21,7 @@
 
             <div class="separator">
                 <p class="change_link">Novo no Site?
-                    <a href="#" class="to_register"> Crie uma conta </a>
+                    <a href="{{ route('condominio.cadastro') }}" class="to_register"> Crie uma conta </a>
                 </p>
 
                 <div class="clearfix"></div>
