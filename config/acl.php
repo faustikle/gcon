@@ -42,4 +42,8 @@ return [
     'documentos-condominio.menu' => [Usuario::SINDICO, Usuario::MORADOR],
     'documentos-condominio.listar' => [Usuario::SINDICO, Usuario::MORADOR],
     'documentos-condominio.cadastro' => [Usuario::SINDICO],
+
+    'moradores.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'moradores.listar' => [Usuario::SINDICO, Usuario::MORADOR],
+    'moradores.cadastro' => [Usuario::SINDICO],
 ];

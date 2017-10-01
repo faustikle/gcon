@@ -53,7 +53,7 @@
             @can('documentos-condominio.menu')
             <li><a><i class="fa fa-file-excel-o"></i> Documentos <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    @can('documentos-condominio.listar  ')
+                    @can('documentos-condominio.listar')
                     <li><a href="{{ route('documentos-condominio.index') }}">Listar</a></li>
                     @endcan
                     @can('documentos-condominio.cadastro')
@@ -64,53 +64,60 @@
             @endcan
         </ul>
         <ul class="nav side-menu">
+            @can('moradores.menu')
             <li><a><i class="fa fa-group"></i> Moradores <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
+                    @can('moradores.listar')
+                        <li><a href="{{ route('moradores.index') }}">Listar</a></li>
+                    @endcan
+                    @can('moradores.cadstro')
+                        <li><a href="{{ route('moradores.cadastrar') }}">Adicionar</a></li>
+                    @endcan
                 </ul>
             </li>
-            <li><a><i class="fa fa-user"></i> Sindico <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-soccer-ball-o"></i> Ambientes <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-building"></i> Condomínio <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
+            @endcan
+            {{--<li><a><i class="fa fa-user"></i> Sindico <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a><i class="fa fa-soccer-ball-o"></i> Ambientes <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a><i class="fa fa-building"></i> Condomínio <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
         </ul>
-        <ul class="nav side-menu">
-            <li><a><i class="fa fa-bank"></i> Contas <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-money"></i> Fluxo de Caixa <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-file-excel-o"></i> Documentos <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Listar</a></li>
-                </ul>
-            </li>
-        </ul>
+        {{--<ul class="nav side-menu">--}}
+            {{--<li><a><i class="fa fa-bank"></i> Contas <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a><i class="fa fa-money"></i> Fluxo de Caixa <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a><i class="fa fa-file-excel-o"></i> Documentos <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>--}}
+                {{--<ul class="nav child_menu">--}}
+                    {{--<li><a href="#">Listar</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
     </div>
 </div>
