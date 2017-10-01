@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Reuniao\Pauta;
 use App\Models\Reuniao\Voto;
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,6 +16,7 @@ class Usuario extends Authenticatable
           VISITANTE = 'Visitante';
 
     use Notifiable;
+    use Identificable;
 
     protected $primaryKey = 'usuario_id';
 
@@ -75,6 +77,22 @@ class Usuario extends Authenticatable
         }
 
         return false;
+    }
+
+    public function scopePorUsuario($query, Usuario $usuario)
+    {
+        if ($usuario->isAdministrador()) {
+            return $query;
+        }
+
+        return $query
+            ->where('condominio_id', $usuario->condominio_id)
+            ->whereNotIn('funcao', [Usuario::ADMINISTRADOR]);
+    }
+
+    public function getUltimoAcessoAttribute($ultimoAcesso)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $ultimoAcesso);
     }
 
     /**

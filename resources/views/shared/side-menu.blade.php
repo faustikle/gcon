@@ -70,8 +70,8 @@
                     @can('moradores.listar')
                         <li><a href="{{ route('moradores.index') }}">Listar</a></li>
                     @endcan
-                    @can('moradores.cadstro')
-                        <li><a href="{{ route('moradores.cadastrar') }}">Adicionar</a></li>
+                    @can('moradores.convidar')
+                        <li><a href="{{ route('moradores.adicionar') }}">Adicionar</a></li>
                     @endcan
                 </ul>
             </li>

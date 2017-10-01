@@ -45,5 +45,6 @@ return [
 
     'moradores.menu' => [Usuario::SINDICO, Usuario::MORADOR],
     'moradores.listar' => [Usuario::SINDICO, Usuario::MORADOR],
-    'moradores.cadastro' => [Usuario::SINDICO],
+    'moradores.convidar' => [Usuario::SINDICO],
+    'moradores.excluir' => [Usuario::SINDICO],
 ];

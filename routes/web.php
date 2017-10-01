@@ -3,6 +3,15 @@
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
+/**
+ * CONVITE
+ */
+Route::get('/convite/{token}', 'MoradorController@cadastro')
+    ->name('convite.cadastro');
+
+Route::post('/convite/{token}', 'MoradorController@salvar')
+    ->name('convite.salvar');
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/', 'PainelController@index')->name('painel.index');
 
@@ -159,5 +168,24 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/documentos/novo', 'DocumentoCondominioController@cadastro')
         ->name('documentos-condominio.cadastro')
         ->middleware('can:documentos-condominio.cadastro');
+
+    /**
+     * MORADORES
+     */
+    Route::get('/moradores', 'MoradorController@index')
+        ->name('moradores.index')
+        ->middleware('can:moradores.listar');
+
+    Route::get('/moradores/convidar', 'MoradorController@adicionar')
+        ->name('moradores.adicionar')
+        ->middleware('can:moradores.convidar');
+
+    Route::post('/moradores/convidar', 'MoradorController@convidar')
+        ->name('moradores.convidar')
+        ->middleware('can:moradores.convidar');
+
+    Route::post('/morador/{morador}/excluir', 'MoradorController@excluir')
+        ->name('moradores.excluir')
+        ->middleware('can:moradores.excluir');
 });
 

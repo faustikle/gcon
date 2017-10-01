@@ -4,6 +4,28 @@ return [
     'geral' => [
         'permissao-negada' => 'Você não tem permissão para executar esta ação.'
     ],
+    'convite-morador' => [
+        'cadastro-sucesso' => 'Convite enviado com sucesso!',
+        'cadastro-erro' => 'Ocorreu algum erro ao salvar seu cadstro. Contate seu sindico.',
+        'convite-erro' => 'Ocorreu algum erro ao enviar o convite para o morador.',
+        'convite-invalido' => 'Este convite é inválido',
+        'form' => [
+            // Email
+            'email.required' => 'O email é obrigatório',
+            'email.email' => 'É necessário colocar um email válido.',
+            'email.unique' => 'Este email já esta cadastrado.',
+
+            // Nome
+            'nome.required' => 'O nome é obrigatório',
+
+            // Numero Apartamento
+            'numero_apartamento.required' => 'O numero do apartamento é obrigatório',
+
+            // Senha
+            'password.required' => 'A senha é obrigatória',
+            'password.confirmed' => 'As senhas são diferentes.',
+        ]
+    ],
     'documentos' => [
         'nao-encontrado' => 'Este documento não existe mais.',
         'cadastro-sucesso' => 'Documento salvo com sucesso!',
