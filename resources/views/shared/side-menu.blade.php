@@ -1,6 +1,6 @@
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
-        <h3>Módulo Administrativo</h3>
+        {{--<h3>Módulo Administrativo</h3>--}}
         <ul class="nav side-menu">
             @can('reunioes.menu')
             <li><a><i class="fa fa-balance-scale"></i> Reunião Online <span class="fa fa-chevron-down"></span></a>
@@ -53,15 +53,16 @@
             @can('documentos-condominio.menu')
             <li><a><i class="fa fa-file-excel-o"></i> Documentos <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    @can('documentos-condominio.listar  ')
                     <li><a href="{{ route('documentos-condominio.index') }}">Listar</a></li>
-                    <li><a href="{{ route('documentos-condominio.cadastro') }}">Adicionar</a></li>
+                    @endcan
+                    @can('documentos-condominio.cadastro')
+                        <li><a href="{{ route('documentos-condominio.cadastro') }}">Adicionar</a></li>
+                    @endcan
                 </ul>
             </li>
             @endcan
         </ul>
-    </div>
-    <div class="menu_section">
-        <h3>Módulo Comunitário</h3>
         <ul class="nav side-menu">
             <li><a><i class="fa fa-group"></i> Moradores <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
@@ -89,9 +90,6 @@
                 </ul>
             </li>
         </ul>
-    </div>
-    <div class="menu_section">
-        <h3>Módulo Financeiro</h3>
         <ul class="nav side-menu">
             <li><a><i class="fa fa-bank"></i> Contas <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">

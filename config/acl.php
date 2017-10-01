@@ -39,7 +39,7 @@ return [
 
     'documentos.excluir' => [Usuario::SINDICO],
 
-    'documentos-condominio.menu' => [Usuario::SINDICO],
-    'documentos-condominio.listar' => [Usuario::SINDICO],
+    'documentos-condominio.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'documentos-condominio.listar' => [Usuario::SINDICO, Usuario::MORADOR],
     'documentos-condominio.cadastro' => [Usuario::SINDICO],
 ];
