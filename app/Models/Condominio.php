@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Endereco\Cidade;
+use App\Models\Financeiro\FluxoDeCaixa;
 use App\Models\Reuniao\Reuniao;
 use App\Models\Servico\AvaliacaoPrestador;
 use Illuminate\Database\Eloquent\Model;
@@ -47,6 +48,11 @@ final class Condominio extends Model
     public function documentos()
     {
         return $this->belongsToMany(Documento::class, 'documentos_condominio', 'condominio_id', 'documento_id');
+    }
+
+    public function fluxo_de_caixa_atual()
+    {
+        return $this->hasOne(FluxoDeCaixa::class, 'fluxo_de_caixa_id');
     }
 
     public function equals(Condominio $condominio)

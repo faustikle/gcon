@@ -18,11 +18,11 @@ class CreateCondominiosTable extends Migration
             $table->string('nome');
             $table->boolean('ativo')->default(false);
             $table->integer('cidade_id');
-            $table->integer('fluxo_de_caixa_atual')->nullable()->unsigned();
+            $table->integer('fluxo_de_caixa_id')->nullable()->unsigned();
             $table->timestamps();
 
             $table->foreign('cidade_id')->references('cidade_id')->on('cidades')->onDelete('cascade');
-            $table->foreign('fluxo_de_caixa_atual')->references('fluxo_de_caixa_atual')->on('fluxos_de_caixa');
+            $table->foreign('fluxo_de_caixa_id')->references('fluxo_de_caixa_id')->on('fluxos_de_caixa');
         });
     }
 
