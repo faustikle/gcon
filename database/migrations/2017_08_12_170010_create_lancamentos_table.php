@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Financeiro\Lancamento;
 
 class CreateLancamentosTable extends Migration
 {
@@ -17,7 +18,7 @@ class CreateLancamentosTable extends Migration
             $table->increments('lancamentos_id');
             $table->double('valor', 15, 2);
             $table->string('descricao');
-            $table->enum('tipo', ['Receita', 'Despesa']);
+            $table->enum('tipo', [Lancamento::DESPESA, Lancamento::RECEITA]);
             $table->string('observacao')->nullable();
             $table->integer('fluxo_de_caixa_id')->unsigned();
             $table->integer('categoria_lancamento_id')->unsigned();
