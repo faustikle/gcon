@@ -41,6 +41,11 @@ final class Condominio extends Model
         return $this->hasMany(AvaliacaoPrestador::class, 'condominio_id');
     }
 
+    public function fluxos_de_caixa()
+    {
+        return $this->hasMany(FluxoDeCaixa::class, 'condominio_id');
+    }
+
     public function cidade()
     {
         return $this->belongsTo(Cidade::class, 'cidade_id');

@@ -51,6 +51,7 @@ return [
     'financeiro.menu' => [Usuario::SINDICO, Usuario::MORADOR],
     'fluxo-caixa' => [Usuario::SINDICO],
     'balancete.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'balancete.index' => [Usuario::SINDICO, Usuario::MORADOR],
     'balancete.sintetico' => [Usuario::SINDICO, Usuario::MORADOR],
     'balancete.analitico' => [Usuario::SINDICO],
 ];

@@ -17,6 +17,7 @@ class CreateFluxosDeCaixaTable extends Migration
             $table->increments('fluxo_de_caixa_id');
             $table->integer('condominio_id')->unsigned();
             $table->double('saldo_inicial', 15, 2);
+            $table->dateTime('fechamento')->nullable();
             $table->timestamps();
 
             $table->foreign('condominio_id')->references('condominio_id')->on('condominios');

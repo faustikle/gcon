@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Condominio;
 use App\Models\Financeiro\CategoriaLancamento;
 use App\Models\Financeiro\FluxoDeCaixa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,6 +65,7 @@ class FluxoDeCaixaController extends Controller
     public function fechar()
     {
         /** @var Condominio $condominioUsuario */
+        /** @var FluxoDeCaixa $fluxoCaixa */
         $condominioUsuario = Auth::user()->condominio;
 
         if (!$condominioUsuario->possuiFluxoCaixaAberto()) {
@@ -71,6 +73,10 @@ class FluxoDeCaixaController extends Controller
                 ->route('fluxo-caixa.index')
                 ->with('flash-error', config('mensagens.fluxo-caixa.nao-iniciado'));
         }
+
+        $fluxoCaixa = FluxoDeCaixa::find($condominioUsuario->fluxo_de_caixa_id);
+        $fluxoCaixa->fechamento = Carbon::now();
+        $fluxoCaixa->save();
 
         $condominioUsuario->fluxo_de_caixa_id = null;
 

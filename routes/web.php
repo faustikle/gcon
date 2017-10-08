@@ -218,5 +218,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::post('/fluxo-de-caixa/{fluxoCaixa}/lancamento', 'LancamentoController@salvar')
         ->name('lancamento.salvar')
         ->middleware('can:fluxo-caixa');
+
+    /**
+     * BALANCETE
+     */
+    Route::get('/balancete', 'BalanceteController@index')
+        ->name('balancete.index')
+        ->middleware('can:balancete.index');
 });
 

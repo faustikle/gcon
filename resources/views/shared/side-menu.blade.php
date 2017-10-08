@@ -85,7 +85,7 @@
                         <li><a href="{{ route('fluxo-caixa.index') }}">Fluxo de caixa</a></li>
                     @endcan
                     @can('balancete.menu')
-                        <li><a href="#">Balancete</a></li>
+                        <li><a href="{{ route('balancete.index') }}">Balancete</a></li>
                     @endcan
                 </ul>
             </li>

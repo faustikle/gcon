@@ -4,6 +4,8 @@ namespace App\Models\Financeiro;
 
 use App\Models\Condominio;
 use App\Models\Identificable;
+use App\Util\Data;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
@@ -17,6 +19,7 @@ final class FluxoDeCaixa extends Model
 
     protected $fillable = [
         'saldo_inicial',
+        'fechamento'
     ];
 
     public function condominio()
@@ -64,12 +67,25 @@ final class FluxoDeCaixa extends Model
         return 'R$ '. number_format($this->saldo_atual, 2, ',', '.');
     }
 
+    public function getFechamentoAttribute($data)
+    {
+        return $data ? Carbon::createFromFormat('Y-m-d H:s:i', $data) : null;
+    }
+
     /**
      * @return bool
      */
     public function possuiLancamentos(): bool
     {
         return $this->lancamentos->count() > 0;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFechado(): bool
+    {
+        return (bool) $this->fechamento;
     }
 
     /**
