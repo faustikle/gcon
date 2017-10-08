@@ -4,6 +4,14 @@ return [
     'geral' => [
         'permissao-negada' => 'Você não tem permissão para executar esta ação.'
     ],
+    'fluxo-caixa' => [
+        'ja-iniciado' => 'Fluxo de caixa já iniciado.',
+        'nao-iniciado' => 'Fluxo de caixa não iniciado.',
+        'iniciar-sucesso' => 'Fluxo de caixa iniciado com sucesso!',
+        'iniciar-erro' => 'Ocorreu algum erro ao iniciar o fluxo de caixa.',
+        'fechar-sucesso' => 'Fluxo de caixa fechado com sucesso!',
+        'fechar-erro' => 'Ocorreu algum erro ao fechar o fluxo de caixa.',
+    ],
     'cadastro-condominio' => [
         'cadastro-erro' => 'Ocorreu algum erro ao salvar seu cadastro.',
         'form' => [

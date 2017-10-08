@@ -17,7 +17,8 @@ final class Condominio extends Model
     protected $table = 'condominios';
 
     protected $fillable = [
-        'nome'
+        'nome',
+        'fluxo_de_caixa_id'
     ];
 
     public function usuarios()
@@ -50,13 +51,24 @@ final class Condominio extends Model
         return $this->belongsToMany(Documento::class, 'documentos_condominio', 'condominio_id', 'documento_id');
     }
 
-    public function fluxo_de_caixa_atual()
-    {
-        return $this->hasOne(FluxoDeCaixa::class, 'fluxo_de_caixa_id');
-    }
-
     public function equals(Condominio $condominio)
     {
         return $this->condominio_id === $condominio->condominio_id;
+    }
+
+    /**
+     * @return bool
+     */
+    public function possuiFluxoCaixaAberto(): bool
+    {
+        return (bool) $this->fluxo_de_caixa_id;
+    }
+
+    /**
+     * @return FluxoDeCaixa
+     */
+    public function getFluxoAtual(): FluxoDeCaixa
+    {
+        return FluxoDeCaixa::find($this->fluxo_de_caixa_id);
     }
 }

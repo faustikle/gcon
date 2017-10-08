@@ -203,5 +203,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::get('/fluxo-de-caixa', 'FluxoDeCaixaController@index')
         ->name('fluxo-caixa.index')
         ->middleware('can:fluxo-caixa');
+
+    Route::post('/fluxo-de-caixa/iniciar', 'FluxoDeCaixaController@iniciar')
+        ->name('fluxo-caixa.iniciar')
+        ->middleware('can:fluxo-caixa');
+
+    Route::post('/fluxo-de-caixa/fechar', 'FluxoDeCaixaController@fechar')
+        ->name('fluxo-caixa.fechar')
+        ->middleware('can:fluxo-caixa');
 });
 

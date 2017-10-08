@@ -7,12 +7,12 @@
 <div class="row">
     <div class="col-md-12 col-sm-6 col-xs-12 iniciar-fluxo">
         @if($fluxoCaixaAtual)
-        <form action="">
+        <form action="{{ route('fluxo-caixa.fechar') }}" method="POST">
             {{ csrf_field() }}
             <button type="submit" class="btn btn-warning">Fechar Mês</button>
         </form>
         @else
-        <form action="">
+        <form action="{{ route('fluxo-caixa.iniciar') }}" method="POST">
             {{ csrf_field() }}
             <button type="submit" class="btn btn-success">Iniciar Mês</button>
         </form>
