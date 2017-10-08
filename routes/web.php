@@ -196,5 +196,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
     Route::post('/morador/{morador}/excluir', 'MoradorController@excluir')
         ->name('moradores.excluir')
         ->middleware('can:moradores.excluir');
+
+    /**
+     * FINANCEIRO
+     */
+    Route::get('/fluxo-de-caixa', 'FluxoDeCaixaController@index')
+        ->name('fluxo-caixa.index')
+        ->middleware('can:fluxo-caixa');
 });
 

@@ -82,7 +82,7 @@
             <li><a><i class="fa fa-bank"></i> Financeiro <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     @can('fluxo-caixa')
-                        <li><a href="#">Fluxo de caixa</a></li>
+                        <li><a href="{{ route('fluxo-caixa.index') }}">Fluxo de caixa</a></li>
                     @endcan
                     @can('balancete.menu')
                         <li><a href="#">Balancete</a></li>
