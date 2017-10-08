@@ -15,7 +15,7 @@ class CreateLancamentosTable extends Migration
     public function up()
     {
         Schema::create('lancamentos', function (Blueprint $table) {
-            $table->increments('lancamentos_id');
+            $table->increments('lancamento_id');
             $table->double('valor', 15, 2);
             $table->string('descricao');
             $table->enum('tipo', [Lancamento::DESPESA, Lancamento::RECEITA]);
@@ -24,7 +24,7 @@ class CreateLancamentosTable extends Migration
             $table->integer('categoria_lancamento_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('fluxo_de_caixa_id')->references('fluxo_de_caixa_id')->on('fluxo_de_caixa');
+            $table->foreign('fluxo_de_caixa_id')->references('fluxo_de_caixa_id')->on('fluxos_de_caixa');
             $table->foreign('categoria_lancamento_id')->references('categoria_lancamento_id')->on('categorias_lancamento');
         });
     }

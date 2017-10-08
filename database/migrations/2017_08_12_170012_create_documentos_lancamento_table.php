@@ -13,7 +13,7 @@ class CreateDocumentosLancamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('documentos_condominio', function (Blueprint $table) {
+        Schema::create('documentos_lancamento', function (Blueprint $table) {
             $table->integer('documento_id')->unsigned();
             $table->integer('lancamento_id')->unsigned();
 
@@ -29,6 +29,6 @@ class CreateDocumentosLancamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documentos_condominio');
+        Schema::dropIfExists('documentos_lancamento');
     }
 }

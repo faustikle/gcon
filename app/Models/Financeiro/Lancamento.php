@@ -13,7 +13,7 @@ final class Lancamento extends Model
     const RECEITA = 'Receita';
     const DESPESA = 'Despesa';
 
-    protected $primaryKey = 'lancamentos_id';
+    protected $primaryKey = 'lancamento_id';
 
     protected $table = 'lancamentos';
 
@@ -36,6 +36,6 @@ final class Lancamento extends Model
 
     public function documentos()
     {
-        return $this->belongsToMany(Documento::class, 'documentos_lancamento', 'lancamentos_id', 'documento_id');
+        return $this->belongsToMany(Documento::class, 'documentos_lancamento', 'lancamento_id', 'documento_id');
     }
 }

@@ -22,7 +22,6 @@ class CreateCondominiosTable extends Migration
             $table->timestamps();
 
             $table->foreign('cidade_id')->references('cidade_id')->on('cidades')->onDelete('cascade');
-            $table->foreign('fluxo_de_caixa_id')->references('fluxo_de_caixa_id')->on('fluxos_de_caixa');
         });
     }
 
