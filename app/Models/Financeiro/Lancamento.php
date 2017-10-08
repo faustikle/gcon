@@ -4,6 +4,7 @@ namespace App\Models\Financeiro;
 
 use App\Models\Documento;
 use App\Models\Identificable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 final class Lancamento extends Model
@@ -21,13 +22,9 @@ final class Lancamento extends Model
         'valor',
         'descricao',
         'tipo',
-        'observacao'
+        'observacao',
+        'data'
     ];
-
-    public function categoria()
-    {
-        return $this->hasOne(CategoriaLancamento::class, 'categoria_lancamento_id');
-    }
 
     public function fluxo_de_caixa()
     {
@@ -37,5 +34,36 @@ final class Lancamento extends Model
     public function documentos()
     {
         return $this->belongsToMany(Documento::class, 'documentos_lancamento', 'lancamento_id', 'documento_id');
+    }
+
+    public function getDataAttribute($data)
+    {
+        return Carbon::createFromFormat('Y-m-d H:s:i', $data);
+    }
+
+    public function getValorFormatadoAttribute()
+    {
+        return 'R$ '. number_format($this->valor, 2, ',', '.');
+    }
+
+    public function getCategoriaAttribute()
+    {
+        return CategoriaLancamento::find($this->categoria_lancamento_id);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDespesa(): bool
+    {
+        return self::DESPESA === $this->tipo;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReceita(): bool
+    {
+        return self::RECEITA === $this->tipo;
     }
 }

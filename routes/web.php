@@ -198,7 +198,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
         ->middleware('can:moradores.excluir');
 
     /**
-     * FINANCEIRO
+     * FLUXO DE CAIXA
      */
     Route::get('/fluxo-de-caixa', 'FluxoDeCaixaController@index')
         ->name('fluxo-caixa.index')
@@ -210,6 +210,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'painel'], function() {
 
     Route::post('/fluxo-de-caixa/fechar', 'FluxoDeCaixaController@fechar')
         ->name('fluxo-caixa.fechar')
+        ->middleware('can:fluxo-caixa');
+
+    /**
+     * LANÇAMENTOS
+     */
+    Route::post('/fluxo-de-caixa/{fluxoCaixa}/lancamento', 'LancamentoController@salvar')
+        ->name('lancamento.salvar')
         ->middleware('can:fluxo-caixa');
 });
 

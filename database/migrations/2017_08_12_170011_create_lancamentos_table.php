@@ -18,6 +18,7 @@ class CreateLancamentosTable extends Migration
             $table->increments('lancamento_id');
             $table->double('valor', 15, 2);
             $table->string('descricao');
+            $table->dateTime('data');
             $table->enum('tipo', [Lancamento::DESPESA, Lancamento::RECEITA]);
             $table->string('observacao')->nullable();
             $table->integer('fluxo_de_caixa_id')->unsigned();

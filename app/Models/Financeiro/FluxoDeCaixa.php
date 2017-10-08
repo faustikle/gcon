@@ -29,24 +29,39 @@ final class FluxoDeCaixa extends Model
         return $this->hasMany(Lancamento::class, 'fluxo_de_caixa_id');
     }
 
-    public function getSaldoInicialAttribute()
+    public function getSaldoInicialFormatadoAttribute()
     {
-        return 0;
+        return 'R$ '. number_format($this->saldo_inicial, 2, ',', '.');
     }
 
     public function getTotalEntradasAttribute()
     {
-        return 0;
+        return $this->getTotalReceitas();
+    }
+
+    public function getTotalEntradasFormatadoAttribute()
+    {
+        return 'R$ '. number_format($this->total_entradas, 2, ',', '.');
     }
 
     public function getTotalSaidasAttribute()
     {
-        return 0;
+        return $this->getTotalDespesas();
     }
 
-    public function getTotalAtualAttribute()
+    public function getTotalSaidasFormatadoAttribute()
     {
-        return 0;
+        return 'R$ '. number_format($this->total_saidas, 2, ',', '.');
+    }
+
+    public function getSaldoAtualAttribute()
+    {
+        return ($this->saldo_inicial + $this->getTotalReceitas()) - $this->getTotalDespesas();
+    }
+
+    public function getSaldoAtualFormatadoAttribute()
+    {
+        return 'R$ '. number_format($this->saldo_atual, 2, ',', '.');
     }
 
     /**
@@ -55,5 +70,39 @@ final class FluxoDeCaixa extends Model
     public function possuiLancamentos(): bool
     {
         return $this->lancamentos->count() > 0;
+    }
+
+    /**
+     * @return float
+     */
+    private function getTotalReceitas(): float
+    {
+        $total = 0;
+
+        /** @var Lancamento $lancamento */
+        foreach ($this->lancamentos as $lancamento) {
+            if ($lancamento->isReceita()) {
+                $total += $lancamento->valor;
+            }
+        }
+
+        return $total;
+    }
+
+    /**
+     * @return float
+     */
+    private function getTotalDespesas(): float
+    {
+        $total = 0;
+
+        /** @var Lancamento $lancamento */
+        foreach ($this->lancamentos as $lancamento) {
+            if ($lancamento->isDespesa()) {
+                $total += $lancamento->valor;
+            }
+        }
+
+        return $total;
     }
 }

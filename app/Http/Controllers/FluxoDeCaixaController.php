@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Condominio;
+use App\Models\Financeiro\CategoriaLancamento;
 use App\Models\Financeiro\FluxoDeCaixa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,14 +15,18 @@ class FluxoDeCaixaController extends Controller
         /** @var Condominio $condominioUsuario */
         /** @var FluxoDeCaixa $fluxoCaixaAtual */
         $condominioUsuario = Auth::user()->condominio;
+        $categoriasLancamento = $condominioUsuario->possuiFluxoCaixaAberto()
+            ? $this->getSelectsPopulate()
+            : [];
         $fluxoCaixaAtual = $condominioUsuario->possuiFluxoCaixaAberto()
-                ? $condominioUsuario->getFluxoAtual()
-                : null;
+            ? $condominioUsuario->getFluxoAtual()
+            : null;
 
-        return view('fluxo-caixa.index', compact('fluxoCaixaAtual'));
+
+        return view('fluxo-caixa.index', array_merge($categoriasLancamento, compact('fluxoCaixaAtual')));
     }
 
-    public function iniciar()
+    public function iniciar(Request $request)
     {
         /** @var Condominio $condominioUsuario */
         $condominioUsuario = Auth::user()->condominio;
@@ -33,7 +38,7 @@ class FluxoDeCaixaController extends Controller
         }
 
         $fluxoCaixa = new FluxoDeCaixa([
-            'saldo_inicial' => 0
+            'saldo_inicial' => $request->input('saldo_inicial')
         ]);
         $fluxoCaixa->condominio()->associate($condominioUsuario);
 
@@ -78,5 +83,17 @@ class FluxoDeCaixaController extends Controller
         return redirect()
             ->route('fluxo-caixa.index')
             ->with('flash-success', config('mensagens.fluxo-caixa.fechar-sucesso'));
+    }
+
+    /**
+     * @return array
+     */
+    private function getSelectsPopulate(): array
+    {
+        $categoriasLancamento = CategoriaLancamento::all()->mapWithKeys(function (CategoriaLancamento $categoria) {
+            return [$categoria->getId() => $categoria->descricao];
+        });
+
+        return compact('categoriasLancamento');
     }
 }

@@ -71,4 +71,13 @@ final class Condominio extends Model
     {
         return FluxoDeCaixa::find($this->fluxo_de_caixa_id);
     }
+
+    /**
+     * @param FluxoDeCaixa $fluxoDeCaixa
+     * @return bool
+     */
+    public function fluxoCaixaAtivo(FluxoDeCaixa $fluxoDeCaixa): bool
+    {
+        return $fluxoDeCaixa->getId() === $this->fluxo_de_caixa_id;
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Financeiro\Lancamento;
+
 return [
     'geral' => [
         'permissao-negada' => 'Você não tem permissão para executar esta ação.'
@@ -11,6 +13,35 @@ return [
         'iniciar-erro' => 'Ocorreu algum erro ao iniciar o fluxo de caixa.',
         'fechar-sucesso' => 'Fluxo de caixa fechado com sucesso!',
         'fechar-erro' => 'Ocorreu algum erro ao fechar o fluxo de caixa.',
+    ],
+    'lancamento' => [
+        'sucesso' => 'Lançamento adicionado com sucesso!',
+        'erro' => 'Ocorreu algum erro ao salvar o lançamento.',
+        'fluxo-caixa-fechado' => 'Não é possivel fazer lançamentos para um fluxo de caixa fechado.',
+        'form' => [
+            // Tipo
+            'tipo.required' => 'O tipo é obrigatório.',
+            'tipo.in' => 'O tipo é deve ser '. Lancamento::DESPESA . ' ou ' . Lancamento::RECEITA .'.',
+
+            // Categoria
+            'categoria.required' => 'A categoria é obrigatória.',
+            'categoria.exists' => 'Esta categoria não existe.',
+
+            // Descrição
+            'descricao.required' => 'A descrição é obrigatória.',
+            'descricao.max' => 'A descrição deve ter no máximo :max caracteres.',
+
+            // Data
+            'data.required' => 'A data é obrigatória.',
+            'data.date' => 'Formato de data inválido.',
+
+            // Valor
+            'valor.required' => 'O valor é obrigatório.',
+            'valor.numeric' => 'O valor deve ser um número.',
+
+            // Observação
+            'observacao.max' => 'A observação deve ter no máximo :max caracteres.',
+        ]
     ],
     'cadastro-condominio' => [
         'cadastro-erro' => 'Ocorreu algum erro ao salvar seu cadastro.',
