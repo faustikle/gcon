@@ -76,48 +76,20 @@
                 </ul>
             </li>
             @endcan
-            {{--<li><a><i class="fa fa-user"></i> Sindico <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li><a><i class="fa fa-soccer-ball-o"></i> Ambientes <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li><a><i class="fa fa-building"></i> Condomínio <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
         </ul>
-        {{--<ul class="nav side-menu">--}}
-            {{--<li><a><i class="fa fa-bank"></i> Contas <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li><a><i class="fa fa-money"></i> Fluxo de Caixa <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li><a><i class="fa fa-file-excel-o"></i> Documentos <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--<li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>--}}
-                {{--<ul class="nav child_menu">--}}
-                    {{--<li><a href="#">Listar</a></li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-        {{--</ul>--}}
+        <ul class="nav side-menu">
+            @can('financeiro.menu')
+            <li><a><i class="fa fa-bank"></i> Financeiro <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    @can('fluxo-caixa')
+                        <li><a href="#">Fluxo de caixa</a></li>
+                    @endcan
+                    @can('balancete.menu')
+                        <li><a href="#">Balancete</a></li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
+        </ul>
     </div>
 </div>

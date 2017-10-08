@@ -47,4 +47,10 @@ return [
     'moradores.listar' => [Usuario::SINDICO, Usuario::MORADOR],
     'moradores.convidar' => [Usuario::SINDICO],
     'moradores.excluir' => [Usuario::SINDICO],
+
+    'financeiro.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'fluxo-caixa' => [Usuario::SINDICO],
+    'balancete.menu' => [Usuario::SINDICO, Usuario::MORADOR],
+    'balancete.sintetico' => [Usuario::SINDICO, Usuario::MORADOR],
+    'balancete.analitico' => [Usuario::SINDICO],
 ];
