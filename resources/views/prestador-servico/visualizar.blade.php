@@ -53,6 +53,7 @@
                                 <td>{{ $categoria->categoria_prestador->descricao }}</td>
                                 <td>
                                     @include('components.rate', [
+                                        'readOnly' => false,
                                         'total' => $categoria->media_avaliacoes_arredondado
                                     ])
                                 </td>

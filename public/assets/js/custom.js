@@ -102,6 +102,8 @@ $(document).ready(function() {
             halfStar: true,
             normalFill: '#cfcfcf',
             ratedFill: '#5A738E'
+        }).on("rateyo.set", function (e, data) {
+            console.log(data.rating);
         });
     }
 
