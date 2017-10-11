@@ -27,6 +27,14 @@
                             <td {{ $lancamento->isDespesa() ? 'class=text-danger' : 'class=text-success' }}>{{ $lancamento->valor_formatado }}</td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL</td>
+                        <td {{ $balancete->saldo_atual <= 0 ? 'class=text-danger' : 'class=text-success' }}>{{ $balancete->saldo_atual_formatado }}</td>
+                    </tr>
                 </tbody>
             </table>
         @else

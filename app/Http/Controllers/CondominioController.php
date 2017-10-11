@@ -47,7 +47,6 @@ class CondominioController extends Controller
             $sindico->condominio()->associate($condominio);
 
             if ($sindico->save()) {
-                dd($sindico);
                 return redirect()->route('login');
             }
         }
