@@ -54,9 +54,9 @@ class Reuniao extends Model
 
     public function getAbertaAttribute()
     {
-        $dataAtual = Carbon::now()->startOfDay();
+        $dataAtual = Carbon::now();
 
-        return $this->getAbertura()->gte($dataAtual) && $this->getEncerramento()->lte($dataAtual);
+        return $dataAtual->gte($this->getAbertura()) && $dataAtual->lte($this->getEncerramento());
     }
 
     public function getSituacaoAttribute()
@@ -88,6 +88,6 @@ class Reuniao extends Model
 
     private function getEncerramento(): Carbon
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $this->data_encerramento)->startOfDay();
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->data_encerramento)->endOfDay();
     }
 }

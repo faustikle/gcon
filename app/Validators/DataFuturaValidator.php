@@ -11,7 +11,7 @@ final class DataFuturaValidator
     {
         $dataAtual = Carbon::now()->startOfDay();
 
-        $dataValidar = Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
+        $dataValidar = Carbon::createFromFormat('Y-m-d', $value)->endOfDay();
 
         return $dataValidar->gte($dataAtual);
     }
