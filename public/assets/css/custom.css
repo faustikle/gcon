@@ -4310,5 +4310,9 @@ ul.notifications {
 
 
 .iniciar-fluxo {
-    margin-top: 12px;
+  margin-top: 12px;
+}
+
+.detalhes-reuniao-alinhados {
+  float: left !important;
 }
