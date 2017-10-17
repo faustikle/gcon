@@ -10,3 +10,4 @@
 <link href="{{ asset('vendors/rateyo/jquery.rateyo.min.css') }}" rel="stylesheet">
 <link href="{{ asset('vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+<link href="{{ asset('node_modules/fullcalendar/dist/fullcalendar.css') }}" rel="stylesheet">
