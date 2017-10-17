@@ -21,6 +21,9 @@
 <script src="{{ asset('vendors/rateyo/jquery.rateyo.min.js') }}"></script>
 <script src="{{ asset('vendors/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
+<script src=" {{asset('node_modules/moment/min/moment.min.js')}} "></script>
+<script src=" {{asset('node_modules/fullcalendar/dist/fullcalendar.js')}} "></script>
+<script src=" {{asset('node_modules/fullcalendar/dist/locale/pt-br.js')}} "></script>
 @if (session('flash-error'))
     @include('shared.alert', [
         'title' => 'Erro!',
